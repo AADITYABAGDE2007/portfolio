@@ -70,7 +70,7 @@ export default function OriginSection() {
 
       <div className="w-full h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(232,23,44,0.3), transparent)" }} />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-28 lg:py-36">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-20 sm:py-24 lg:py-36">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-20 items-start">
 
           {/* ── LEFT ── */}
@@ -92,7 +92,7 @@ export default function OriginSection() {
                   style={{ overflow: "hidden" }}>
                   <span style={{
                     display: "block",
-                    fontSize: "clamp(64px, 10vw, 90px)",
+                    fontSize: "clamp(48px, 10vw, 90px)",
                     fontWeight: 900,
                     fontFamily: "sans-serif",
                     letterSpacing: "-0.03em",
@@ -140,7 +140,7 @@ export default function OriginSection() {
           </div>
 
           {/* ── RIGHT — Act timeline ── */}
-          <div className="relative mt-16 lg:mt-24">
+          <div className="relative mt-12 sm:mt-16 lg:mt-24">
             {/* Vertical red line */}
             <motion.div
               initial={{ scaleY: 0 }} animate={inView ? { scaleY: 1 } : {}}

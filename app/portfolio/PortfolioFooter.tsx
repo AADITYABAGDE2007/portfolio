@@ -8,8 +8,8 @@ export default function Footer() {
 
   return (
     <footer className="relative w-full overflow-hidden bg-transparent" style={{ display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full pt-16 pb-12">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12 border-b border-[rgba(255,255,255,0.05)] pb-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-12 w-full pt-12 sm:pt-16 pb-10 sm:pb-12">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-10 sm:gap-12 border-b border-[rgba(255,255,255,0.05)] pb-10 sm:pb-12">
           
           <div className="max-w-sm">
             <div className="mb-6">
@@ -20,7 +20,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-12 md:gap-24">
+          <div className="flex flex-wrap gap-10 sm:gap-12 md:gap-24">
             <div className="flex flex-col gap-4">
               <h4 style={{ fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--red)", fontFamily: "sans-serif" }}>Navigation</h4>
               {["Skills", "Projects", "Experience", "Certifications"].map(link => (
@@ -46,7 +46,7 @@ export default function Footer() {
           
         </div>
 
-        <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-6 mt-12">
+        <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-6 mt-10 sm:mt-12">
           <p style={{ fontSize: 11, color: "rgba(240,240,240,0.3)", fontFamily: "sans-serif", letterSpacing: "0.05em" }}>
             © {new Date().getFullYear()} Aaditya Bagde. All rights reserved.
           </p>

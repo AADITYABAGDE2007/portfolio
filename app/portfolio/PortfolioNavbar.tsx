@@ -47,22 +47,22 @@ export default function Navbar() {
       className="fixed top-0 inset-x-0 z-50 border-b transition-all duration-500"
       style={{ borderBottomColor: "transparent" }}
     >
-      <div className="max-w-7xl mx-auto px-8 h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
         {/* Logo */}
         <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 12 }}>
-          <div className="w-9 h-9 flex items-center justify-center">
+          style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 10 }}>
+          <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/full_logo.webp" alt="Aaditya-Bagde" style={{ width: 36, height: 36, objectFit: "contain", filter: "drop-shadow(0 0 8px rgba(232,23,44,0.8))" }} />
+            <img src="/full_logo.webp" alt="Aaditya-Bagde" style={{ width: 32, height: 32, objectFit: "contain", filter: "drop-shadow(0 0 8px rgba(232,23,44,0.8))" }} />
           </div>
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <div className="text-[10px] tracking-[0.5em] uppercase font-light" style={{ color: "rgba(240,240,240,0.5)" }}>Aaditya-Bagde</div>
             <div className="text-[9px] tracking-[0.35em] uppercase" style={{ color: "var(--red)" }}>AI & ML DEVELOPER</div>
           </div>
         </button>
 
         {/* Links */}
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden lg:flex items-center gap-10">
           {LINKS.map(({ label, target }) => (
             <button key={label}
               onClick={() => scrollTo(target)}
@@ -82,7 +82,7 @@ export default function Navbar() {
             window.open("/Aaditya-Bagde-Resume.docx", "_blank");
             showToast("Downloading Resume", "Please wait...");
           }}
-          className="text-xs tracking-[0.25em] uppercase px-6 py-2.5 transition-all duration-300"
+          className="text-[9px] sm:text-xs tracking-[0.2em] sm:tracking-[0.25em] uppercase px-4 sm:px-6 py-2.5 transition-all duration-300"
           style={{ background: "var(--red)", color: "#fff", border: "none", cursor: "pointer", fontFamily: "sans-serif" }}
         >
           Download Resume

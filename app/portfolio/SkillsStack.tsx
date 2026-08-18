@@ -30,14 +30,14 @@ export default function SkillsSection() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" ref={ref} className="relative overflow-hidden" style={{ background: "#040608", minHeight: "100vh", padding: "120px 0" }}>
+    <section id="skills" ref={ref} className="relative overflow-hidden" style={{ background: "#040608", minHeight: "100vh", padding: "80px 0" }}>
       {/* Background elements */}
       <div className="absolute inset-0 web-bg opacity-10 pointer-events-none" />
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[rgba(232,23,44,0.03)] to-transparent pointer-events-none" />
       
       {/* Giant Watermark */}
       <div
-        className="absolute pointer-events-none select-none z-0"
+        className="absolute pointer-events-none select-none z-0 hidden md:block"
         aria-hidden
         style={{
           top: "50%", left: "-5%",
@@ -54,32 +54,32 @@ export default function SkillsSection() {
         BUILT WITH
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-16 md:mb-24"
+          className="mb-12 sm:mb-16 md:mb-24"
         >
           <p style={{ fontSize: 10, letterSpacing: "0.7em", textTransform: "uppercase", color: "var(--red)", fontFamily: "sans-serif", marginBottom: 16 }}>
             Technical Arsenal
           </p>
-          <h2 style={{ fontSize: "clamp(36px, 6vw, 64px)", fontWeight: 900, fontFamily: "sans-serif", color: "#fff", letterSpacing: "-0.02em", lineHeight: 1.1, textShadow: "0 0 60px rgba(232,23,44,0.3)" }}>
+          <h2 style={{ fontSize: "clamp(32px, 6vw, 64px)", fontWeight: 900, fontFamily: "sans-serif", color: "#fff", letterSpacing: "-0.02em", lineHeight: 1.1, textShadow: "0 0 60px rgba(232,23,44,0.3)" }}>
             BUILT WI<span className="red-gradient">TH</span>
           </h2>
           <div className="w-24 h-1 mt-8" style={{ background: "linear-gradient(90deg, var(--red), transparent)" }} />
         </motion.div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
           {SKILL_CATEGORIES.map((cat, i) => (
             <motion.div
               key={cat.title}
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.2 + i * 0.15 }}
-              className="group relative p-8 md:p-10 transition-all duration-500 overflow-hidden"
+              className="group relative p-6 sm:p-8 md:p-10 transition-all duration-500 overflow-hidden"
               style={{
                 background: "#080a0e",
                 border: "1px solid rgba(255,255,255,0.06)",

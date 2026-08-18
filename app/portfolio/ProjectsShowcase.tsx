@@ -56,10 +56,10 @@ export default function PowersSection() {
       }} />
       <div className="w-full h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(232,23,44,0.3), transparent)" }} />
 
-      <div className="relative z-10 py-28">
+      <div className="relative z-10 py-20 sm:py-24 md:py-28">
         {/* Header */}
-        <div className="px-6 md:px-12 max-w-7xl mx-auto mb-16" style={{ paddingLeft: "clamp(24px, 5vw, 80px)" }}>
-          <div className="flex items-end justify-between flex-wrap gap-6">
+        <div className="px-4 sm:px-6 md:px-12 max-w-7xl mx-auto mb-12 sm:mb-16" style={{ paddingLeft: "clamp(24px, 5vw, 80px)" }}>
+          <div className="flex flex-col lg:flex-row lg:items-end gap-8">
             <div>
               <motion.p initial={{ opacity: 0, x: -20 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7 }}
                 style={{ fontSize: 10, letterSpacing: "0.7em", textTransform: "uppercase", color: "var(--red)", fontFamily: "sans-serif", marginBottom: 14 }}>
@@ -71,7 +71,7 @@ export default function PowersSection() {
               </motion.h2>
             </div>
             <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.8, delay: 0.3 }}
-              style={{ maxWidth: 320, fontSize: 13, lineHeight: 1.85, color: "rgba(240,240,240,0.35)", fontFamily: "sans-serif" }}>
+              style={{ maxWidth: 420, fontSize: 13, lineHeight: 1.85, color: "rgba(240,240,240,0.35)", fontFamily: "sans-serif" }}>
               The tools are only the beginning. What matters is what you build with them — ideas transformed into working experiences.
             </motion.p>
           </div>
@@ -79,7 +79,7 @@ export default function PowersSection() {
 
         {/* Horizontal scroll cards */}
         <div
-          className="flex gap-4 overflow-x-auto pb-6"
+          className="flex gap-4 overflow-x-auto pb-4 sm:pb-6"
           style={{
             paddingLeft: "clamp(24px, 5vw, 80px)",
             paddingRight: "clamp(24px, 5vw, 80px)",
@@ -97,7 +97,7 @@ export default function PowersSection() {
               className="group flex-shrink-0 flex flex-col"
               style={{
                 scrollSnapAlign: "start",
-                width: "clamp(260px, 28vw, 360px)",
+                width: "clamp(240px, 82vw, 360px)",
                 border: "1px solid rgba(255,255,255,0.06)",
                 background: "rgba(255,255,255,0.02)",
                 padding: "36px 32px",

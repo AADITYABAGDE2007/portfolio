@@ -44,7 +44,7 @@ export default function ExperienceSection() {
       {/* Top Divider */}
       <div className="w-full h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(232,23,44,0.3), transparent)" }} />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-28">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-20 sm:py-24 md:py-28">
         
         {/* Header - Kept in its original position on the left */}
         <div className="mb-24">
@@ -53,7 +53,7 @@ export default function ExperienceSection() {
             EXPERIENCE
           </motion.p>
           <motion.h2 initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.85, delay: 0.08 }}
-            style={{ fontSize: "clamp(40px, 6vw, 80px)", fontWeight: 900, fontFamily: "sans-serif", color: "#fff", letterSpacing: "-0.03em", lineHeight: 0.92 }}>
+            style={{ fontSize: "clamp(34px, 6vw, 80px)", fontWeight: 900, fontFamily: "sans-serif", color: "#fff", letterSpacing: "-0.03em", lineHeight: 0.92 }}>
             PROFESSIONAL<br /><span className="red-gradient">JOURNEY.</span>
           </motion.h2>
         </div>
@@ -81,7 +81,7 @@ export default function ExperienceSection() {
             }}
           />
 
-          <div className="flex flex-col gap-16 md:gap-32 pb-12 mt-16 md:mt-24">
+          <div className="flex flex-col gap-12 sm:gap-16 md:gap-32 pb-12 mt-12 sm:mt-16 md:mt-24">
             {EXPERIENCES.map((exp, i) => (
               <div key={i} className="relative flex flex-col md:flex-row items-center justify-between w-full">
                 

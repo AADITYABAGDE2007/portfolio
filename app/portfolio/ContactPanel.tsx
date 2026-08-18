@@ -7,27 +7,27 @@ export default function ContactSection() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
   
   return (
-    <section id="contact" ref={ref} className="relative overflow-hidden pt-32 pb-16 bg-transparent">
+    <section id="contact" ref={ref} className="relative overflow-hidden pt-20 sm:pt-24 md:pt-32 pb-14 sm:pb-16 bg-transparent">
       {/* Top Divider */}
       <div className="absolute top-0 inset-x-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(232,23,44,0.3), transparent)" }} />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start lg:items-center">
           
           {/* Content Side */}
           <motion.div 
             initial={{ opacity: 0, x: -40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="flex flex-col justify-center"
+            className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left"
           >
             <p style={{ fontSize: 10, letterSpacing: "0.6em", textTransform: "uppercase", color: "var(--red)", fontFamily: "sans-serif", marginBottom: 16 }}>
               Collaborate
             </p>
-            <h2 style={{ fontSize: "clamp(48px, 6vw, 80px)", fontWeight: 900, fontFamily: "sans-serif", color: "#fff", letterSpacing: "-0.03em", lineHeight: 0.95, marginBottom: 24 }}>
+            <h2 style={{ fontSize: "clamp(40px, 6vw, 80px)", fontWeight: 900, fontFamily: "sans-serif", color: "#fff", letterSpacing: "-0.03em", lineHeight: 0.95, marginBottom: 24 }}>
               Get In<br /><span className="red-gradient">Touch.</span>
             </h2>
-            <p style={{ fontSize: 15, lineHeight: 1.8, color: "rgba(240,240,240,0.6)", fontFamily: "Georgia, serif", marginBottom: 48, maxWidth: 400 }}>
+            <p style={{ fontSize: 15, lineHeight: 1.8, color: "rgba(240,240,240,0.6)", fontFamily: "Georgia, serif", marginBottom: 40, maxWidth: 400 }}>
               Whether you have a project in mind, want to discuss machine learning implementations, or just want to connect. Send a message directly to my inbox.
             </p>
 
@@ -67,7 +67,7 @@ export default function ContactSection() {
             className="w-full relative"
           >
             {/* Form Container with glassmorphism */}
-            <div className="p-8 md:p-12 rounded-sm relative overflow-hidden" style={{ background: "rgba(4,6,8,0.4)", border: "1px solid rgba(255,255,255,0.05)", backdropFilter: "blur(12px)" }}>
+            <div className="p-6 sm:p-8 md:p-12 rounded-sm relative overflow-hidden" style={{ background: "rgba(4,6,8,0.4)", border: "1px solid rgba(255,255,255,0.05)", backdropFilter: "blur(12px)" }}>
               {/* Subtle top red line */}
               <div className="absolute top-0 inset-x-0 h-0.5" style={{ background: "linear-gradient(90deg, var(--red), transparent)", opacity: 0.6 }} />
 

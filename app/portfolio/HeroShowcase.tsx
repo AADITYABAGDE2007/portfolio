@@ -128,13 +128,13 @@ export default function FrameHero() {
         <div className="absolute inset-0 web-bg pointer-events-none opacity-30" />
 
         {/* ── INITIAL TITLE (fades out on scroll) ── */}
-        <div ref={titleRef} className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 pointer-events-none">
+        <div ref={titleRef} className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 pointer-events-none">
           <p className="text-[10px] tracking-[0.8em] uppercase mb-6"
             style={{ color: "var(--red)", fontFamily: "sans-serif" }}>
             Aaditya Bagde Presents
           </p>
           <h1 className="font-black uppercase leading-none" style={{ fontFamily: "sans-serif" }}>
-            <span className="block text-6xl md:text-7xl lg:text-8xl"
+            <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl"
               style={{
                 color: "#fff",
                 letterSpacing: "-0.02em",
@@ -142,7 +142,7 @@ export default function FrameHero() {
               }}>
               BUILDING-INTELLIGENT
             </span>
-            <span className="block text-3xl md:text-4xl lg:text-5xl mt-3 italic"
+            <span className="block text-sm sm:text-base md:text-lg lg:text-4xl xl:text-5xl mt-2 sm:mt-3 italic"
               style={{
                 color: "var(--red)",
                 letterSpacing: "0.08em",
@@ -161,7 +161,7 @@ export default function FrameHero() {
         </div>
 
         {/* Scroll captions — left side, small */}
-        <div className="absolute pointer-events-none"
+        <div className="absolute pointer-events-none hidden md:block"
           style={{ left: "clamp(24px, 5vw, 72px)", bottom: "clamp(80px, 12vh, 130px)", width: "clamp(280px, 38vw, 520px)" }}>
           {CAPTIONS.map((c, i) => (
             <div key={c.text} ref={(el) => { captionRefs.current[i] = el; }}
@@ -198,34 +198,33 @@ export default function FrameHero() {
         </div>
 
         {/* ── HERO CONTENT (SCROLL PHASE 1) ── */}
-        <div ref={heroRef} className="absolute inset-0 flex items-center justify-center px-6 md:px-12 pointer-events-auto" style={{ opacity: 0 }}>
-          <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center justify-between gap-12">
+        <div ref={heroRef} className="absolute inset-0 flex items-center justify-center px-4 sm:px-6 md:px-12 pointer-events-auto" style={{ opacity: 0 }}>
+          <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center justify-between gap-8 sm:gap-10 md:gap-8 lg:gap-12">
             
             {/* Left: Text Content */}
-            <div className="flex-1 text-left flex flex-col items-start md:pl-12 lg:pl-20">
-              <p className="text-[10px] tracking-[0.8em] uppercase mb-4" style={{ color: "var(--red)", fontFamily: "sans-serif" }}>
+            <div className="flex-1 w-full md:w-[58%] text-center md:text-left flex flex-col items-center md:items-start md:pl-8 lg:pl-20">
+              <p className="text-[8px] sm:text-[9px] md:text-[10px] tracking-[0.45em] sm:tracking-[0.55em] md:tracking-[0.8em] uppercase mb-4" style={{ color: "var(--red)", fontFamily: "sans-serif" }}>
                 Hello, I&apos;m
               </p>
               <h2 className="font-black uppercase leading-none" style={{ fontFamily: "sans-serif" }}>
-                <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
+                <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
                   style={{ color: "#fff", letterSpacing: "-0.02em", textShadow: "0 0 80px rgba(232,23,44,0.5), 0 4px 40px rgba(0,0,0,0.8)" }}>
                   AADITYA BAGDE
                 </span>
-                <span className="block text-xl md:text-2xl lg:text-3xl mt-3 italic"
+                <span className="block text-base sm:text-xl md:text-2xl lg:text-3xl mt-3 italic"
                   style={{ color: "var(--red)", letterSpacing: "0.08em", textShadow: "0 0 60px rgba(232,23,44,0.7)" }}>
                   AI/ML STUDENT & DEVELOPER
                 </span>
               </h2>
-              <p className="mt-8 max-w-xl text-sm md:text-base leading-relaxed text-gray-300 font-serif"
-                style={{ textShadow: "0 2px 20px rgba(0,0,0,1)" }}>
+              <p className="mt-5 sm:mt-6 md:mt-7 lg:mt-8 max-w-md sm:max-w-lg md:max-w-xl text-sm md:text-base leading-relaxed text-gray-300 font-serif mx-auto md:mx-0" style={{ textShadow: "0 2px 20px rgba(0,0,0,1)" }}>
                 Building intelligent solutions and modern digital experiences with AI, Python, React, and machine learning, while turning ideas into practical applications through clean, scalable, and user-focused development.
               </p>
-              <div className="mt-8 flex gap-4">
-                <button className="text-[10px] tracking-[0.25em] uppercase px-6 py-2.5 transition-all duration-300 border border-[rgba(232,23,44,0.5)] hover:bg-[rgba(232,23,44,0.1)]"
+              <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
+                <button className="text-[10px] tracking-[0.22em] uppercase px-5 sm:px-6 py-2.5 transition-all duration-300 border border-[rgba(232,23,44,0.5)] hover:bg-[rgba(232,23,44,0.1)]"
                   style={{ color: "#fff", cursor: "pointer", fontFamily: "sans-serif" }} onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}>
                   View Projects
                 </button>
-                <button className="text-[10px] tracking-[0.25em] uppercase px-6 py-2.5 transition-all duration-300"
+                <button className="text-[10px] tracking-[0.22em] uppercase px-5 sm:px-6 py-2.5 transition-all duration-300"
                   style={{ background: "var(--red)", color: "#fff", border: "none", cursor: "pointer", fontFamily: "sans-serif" }} onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
                   Contact Me
                 </button>
@@ -233,9 +232,16 @@ export default function FrameHero() {
             </div>
 
             {/* Right: Image */}
-            <div className="flex-1 w-full flex justify-center md:justify-end">
-              <div className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px] lg:w-[500px] lg:h-[500px]">
-                <Image src="/me.webp" alt="Aaditya Bagde" fill sizes="(min-width: 1024px) 500px, (min-width: 768px) 450px, 300px" className="object-contain" style={{ filter: "drop-shadow(0 0 60px rgba(232,23,44,0.4))" }} />
+            <div className="flex-1 w-full md:w-[42%] flex justify-center md:justify-end mt-6 md:mt-0">
+              <div className="relative w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] md:w-[280px] md:h-[280px] lg:w-[500px] lg:h-[500px]">
+                <Image src="/me.webp" alt="Aaditya Bagde" fill sizes="(min-width: 1024px) 500px, (min-width: 768px) 280px, 180px" className="object-contain" style={{ filter: "drop-shadow(0 0 60px rgba(232,23,44,0.4))" }} />
+                <div
+                  className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[94%] sm:w-[90%] md:w-[84%] h-[3px] pointer-events-none"
+                  style={{
+                    background: "linear-gradient(90deg, transparent 0%, #e8172c 15%, #ff4757 50%, #e8172c 85%, transparent 100%)",
+                    boxShadow: "0 0 20px rgba(232,23,44,0.6)",
+                  }}
+                />
               </div>
             </div>
 
@@ -244,7 +250,7 @@ export default function FrameHero() {
 
         {/* ── ABOUT CONTENT (SCROLL PHASE 2) ── */}
         <div ref={aboutRef} className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 pointer-events-none" style={{ opacity: 0 }}>
-          <p className="text-[10px] tracking-[0.8em] uppercase mb-4" style={{ color: "var(--red)", fontFamily: "sans-serif" }}>
+          <p className="text-[8px] sm:text-[9px] md:text-[10px] tracking-[0.45em] sm:tracking-[0.55em] md:tracking-[0.8em] uppercase mb-4" style={{ color: "var(--red)", fontFamily: "sans-serif" }}>
             ABOUT ME
           </p>
           <h2 className="font-black uppercase leading-none" style={{ fontFamily: "sans-serif" }}>
@@ -260,7 +266,7 @@ export default function FrameHero() {
         </div>
 
         {/* Scroll cue */}
-        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
+        <div className="absolute bottom-10 sm:bottom-14 md:bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
           <span className="text-[9px] tracking-[0.5em] uppercase" style={{ color: "var(--red)", fontFamily: "sans-serif" }}>Scroll</span>
           <div className="w-px h-10 bg-gradient-to-b from-[#e8172c] to-transparent animate-pulse" />
         </div>
@@ -268,3 +274,5 @@ export default function FrameHero() {
     </div>
   );
 }
+
+
