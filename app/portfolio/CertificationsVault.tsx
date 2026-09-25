@@ -3,24 +3,69 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 const CERTIFICATES = [
-  { n: "01", name: "CS50P Python", impact: "EXTREME", level: 99, color: "#e8172c", desc: "Harvard University's CS50 certification in Python covering functions, variables, conditionals, loops, exceptions, libraries, unit tests, file I/O, and OOP.", certificateUrl: "/certificates/cs50p-python-certificate.pdf" },
-  { n: "02", name: "NPTEL Python", impact: "EXTREME", level: 98, color: "#22c55e", desc: "Rigorous academic certification from NPTEL demonstrating advanced proficiency in Python and data science workflows.", certificateUrl: "/certificates/nptel-python-data-science.pdf" },
-  { n: "03", name: "Happieloop ML Internship", impact: "CRITICAL", level: 95, color: "#e8172c", desc: "Official completion of the Machine Learning internship, validating real-world data pipeline and model training skills.", certificateUrl: "/certificates/happieloop-ml-internship.pdf" },
-  { n: "04", name: "Qskill Frontend Internship", impact: "CRITICAL", level: 92, color: "#3b82f6", desc: "Recognition of internship completion, proving expertise in React.js, Tailwind, and cross-device optimization.", certificateUrl: "/certificates/qskill-frontend-internship.pdf" },
-  { n: "05", name: "Artificial Intelligence", impact: "HIGH", level: 88, color: "#a855f7", desc: "Comprehensive certification from Simplilearn covering core AI concepts and machine learning algorithms.", certificateUrl: "/certificates/artificial-intelligence.pdf" },
-  { n: "06", name: "Deloitte Data Analytics", impact: "HIGH", level: 85, color: "#facc15", desc: "Virtual experience program by Forage & Deloitte, simulating enterprise-level data analytics tasks.", certificateUrl: "/certificates/deloitte-data-analytics.pdf" },
-  { n: "07", name: "Infosys DevOps", impact: "HIGH", level: 82, color: "#d97706", desc: "Professional certification from Infosys Springboard covering modern DevOps practices and pipelines.", certificateUrl: "/certificates/infosys-devops.pdf" },
-  { n: "08", name: "Infosys Python", impact: "HIGH", level: 80, color: "#14b8a6", desc: "Professional certification from Infosys Springboard covering Python programming and software design.", certificateUrl: "/certificates/infosys-python.pdf" },
-  { n: "09", name: "NumPy Data Science", impact: "HIGH", level: 78, color: "#f43f5e", desc: "Specialized training by Simplilearn focusing on numerical computing and arrays using Python's NumPy.", certificateUrl: "/certificates/numpy-data-science.pdf" },
-  { n: "10", name: "Git Version Control", impact: "MODERATE", level: 75, color: "#f97316", desc: "Certification by Simplilearn establishing proficiency in Git version control and GitHub workflows.", certificateUrl: "/certificates/git-version-control.pdf" },
-  { n: "11", name: "Python & SQL", impact: "MODERATE", level: 72, color: "#ec4899", desc: "Specialized training by Scaler combining database management with core data science operations.", certificateUrl: "/certificates/python-sql-data-science.pdf" },
-  { n: "12", name: "JavaScript Essentials 2", impact: "MODERATE", level: 70, color: "#0ea5e9", desc: "Networking Academy certification by Cisco solidifying advanced ES6+ JavaScript logic and problem solving.", certificateUrl: "/certificates/javascript-essentials-2.pdf" },
-  { n: "13", name: "JavaScript Essentials 1", impact: "MODERATE", level: 68, color: "#6366f1", desc: "Networking Academy certification by Cisco covering fundamental JS mechanics and browser APIs.", certificateUrl: "/certificates/javascript-essentials-1.pdf" },
-  { n: "14", name: "CSS Essentials", impact: "MODERATE", level: 65, color: "#8b5cf6", desc: "Solidifying styling, responsive design, and CSS architecture principles for modern frontend development.", certificateUrl: "/certificates/css-essentials.pdf" },
-  { n: "15", name: "HTML Essentials", impact: "MODERATE", level: 62, color: "#d946ef", desc: "Establishing core understanding of semantic HTML5, web accessibility, and structured markup.", certificateUrl: "/certificates/html-essentials.pdf" },
-  { n: "16", name: "Data Structures in C++", impact: "BASE", level: 58, color: "#059669", desc: "Scaler Topics course focusing on algorithmic thinking and optimizing data structures using C++.", certificateUrl: "/certificates/data-structures-cpp.pdf" },
-  { n: "17", name: "C Programming", impact: "BASE", level: 55, color: "#0284c7", desc: "Foundational programming certification by Simplilearn covering memory management and C basics.", certificateUrl: "/certificates/c-programming.pdf" },
-  { n: "18", name: "Coding Logic Building", impact: "BASE", level: 50, color: "#dc2626", desc: "Scaler Topics free course establishing the initial foundation of programming logic for beginners.", certificateUrl: "/certificates/coding-logic-building.pdf" },
+  {
+    n: "01",
+    name: "CS50P Python",
+    issuer: "Harvard University",
+    tag: "Verified Credential",
+    color: "#e8172c",
+    desc: "Harvard University's CS50 certification in Python covering functions, variables, conditionals, loops, exceptions, libraries, unit tests, file I/O, and OOP.",
+    certificateUrl: "/certificates/cs50p-python-certificate.pdf"
+  },
+  {
+    n: "02",
+    name: "NPTEL Python",
+    issuer: "IIT Madras / NPTEL",
+    tag: "Academic Honors",
+    color: "#22c55e",
+    desc: "Rigorous academic certification from NPTEL demonstrating advanced proficiency in Python and data science workflows.",
+    certificateUrl: "/certificates/nptel-python-data-science.pdf"
+  },
+  {
+    n: "03",
+    name: "Happieloop ML Internship",
+    issuer: "Happieloop Tech",
+    tag: "Industry Internship",
+    color: "#e8172c",
+    desc: "Official completion of the Machine Learning internship, validating real-world data pipeline and model training skills.",
+    certificateUrl: "/certificates/happieloop-ml-internship.pdf"
+  },
+  {
+    n: "04",
+    name: "Qskill Frontend Internship",
+    issuer: "SR INDIA / Qskill",
+    tag: "Industry Internship",
+    color: "#3b82f6",
+    desc: "Recognition of internship completion, proving expertise in React.js, Tailwind, and cross-device optimization.",
+    certificateUrl: "/certificates/qskill-frontend-internship.pdf"
+  },
+  {
+    n: "05",
+    name: "Deloitte Data Analytics",
+    issuer: "Deloitte & Forage",
+    tag: "Enterprise Simulation",
+    color: "#facc15",
+    desc: "Virtual experience program by Forage & Deloitte, simulating enterprise-level data analytics tasks.",
+    certificateUrl: "/certificates/deloitte-data-analytics.pdf"
+  },
+  {
+    n: "06",
+    name: "Infosys DevOps",
+    issuer: "Infosys Springboard",
+    tag: "Professional Cert",
+    color: "#d97706",
+    desc: "Professional certification from Infosys Springboard covering modern DevOps practices and pipelines.",
+    certificateUrl: "/certificates/infosys-devops.pdf"
+  },
+  {
+    n: "07",
+    name: "Infosys Python",
+    issuer: "Infosys Springboard",
+    tag: "Professional Cert",
+    color: "#14b8a6",
+    desc: "Professional certification from Infosys Springboard covering Python programming and software design.",
+    certificateUrl: "/certificates/infosys-python.pdf"
+  },
 ];
 
 export default function CertificationsSection() {
@@ -121,7 +166,7 @@ export default function CertificationsSection() {
                   letterSpacing: "0.18em",
                   padding: "10px 14px",
                   marginTop: "auto",
-                  marginBottom: 28,
+                  marginBottom: 20,
                   whiteSpace: "nowrap",
                 }}
               >
@@ -132,23 +177,17 @@ export default function CertificationsSection() {
                 <span className="relative z-10">VIEW CERTIFICATE <span aria-hidden>↗</span></span>
               </a>
 
-              {/* Threat + bar */}
-              <div>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }}>
-                  <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.4em", textTransform: "uppercase", color: v.color, fontFamily: "sans-serif", width: "100%", display: "flex", justifyContent: "space-between" }}>
-                    <span>IMPACT: {v.impact}</span>
-                    <span style={{ fontSize: 11, fontFamily: "sans-serif", color: "rgba(255,255,255,0.25)", letterSpacing: "0.05em" }}>
-                      {v.level}<span style={{ fontSize: 9, color: "rgba(255,255,255,0.12)" }}>/100</span>
-                    </span>
+              {/* Professional Issuer & Credential Status */}
+              <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 14, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                  <span style={{ width: 6, height: 6, borderRadius: "50%", background: v.color, boxShadow: `0 0 8px ${v.color}` }} />
+                  <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: v.color, fontFamily: "sans-serif" }}>
+                    {v.issuer}
                   </span>
                 </div>
-                <div style={{ width: "100%", height: 2, background: "rgba(255,255,255,0.07)" }}>
-                  <motion.div
-                    initial={{ width: 0 }} animate={inView ? { width: `${v.level}%` } : {}}
-                    transition={{ duration: 1.2, delay: 0.2 + 0.07 * i, ease: "easeOut" }}
-                    style={{ height: "100%", background: v.color, boxShadow: `0 0 8px ${v.color}80` }}
-                  />
-                </div>
+                <span style={{ fontSize: 9, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(240,240,240,0.35)", fontFamily: "sans-serif" }}>
+                  {v.tag}
+                </span>
               </div>
             </motion.div>
           ))}

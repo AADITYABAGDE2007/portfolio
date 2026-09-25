@@ -35,7 +35,7 @@ export default function ContactSection() {
               {[
                 { name: "LinkedIn", val: "Connect", link: "https://www.linkedin.com/in/aaditya-bagde" },
                 { name: "GitHub", val: "View Repos", link: "https://github.com/AADITYABAGDE2007" },
-                { name: "Instagram", val: "Follow", link: "https://www.instagram.com/justaadi___/" },
+                { name: "HackerRank", val: "Solve", link: "https://www.hackerrank.com/profile/bagdeaaditya507" },
                 { name: "LeetCode", val: "Profile", link: "https://leetcode.com/u/aadityabagde/" }
               ].map((item, idx) => (
                 <motion.a 

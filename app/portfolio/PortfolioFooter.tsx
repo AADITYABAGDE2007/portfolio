@@ -34,7 +34,7 @@ export default function Footer() {
               {[
                 { name: "LinkedIn", link: "https://www.linkedin.com/in/aaditya-bagde" },
                 { name: "GitHub", link: "https://github.com/AADITYABAGDE2007" },
-                { name: "Instagram", link: "https://www.instagram.com/justaadi___/" },
+                { name: "HackerRank", link: "https://www.hackerrank.com/profile/bagdeaaditya507" },
                 { name: "LeetCode", link: "https://leetcode.com/u/aadityabagde/" }
               ].map(item => (
                 <a key={item.name} href={item.link} target="_blank" rel="noreferrer" style={{ fontSize: 12, color: "rgba(240,240,240,0.6)", fontFamily: "sans-serif" }} className="hover:text-white transition-colors duration-300">

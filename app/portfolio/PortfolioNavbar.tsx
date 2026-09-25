@@ -79,13 +79,13 @@ export default function Navbar() {
           whileHover={{ scale: 1.04, boxShadow: "0 0 24px rgba(232,23,44,0.35)" }}
           whileTap={{ scale: 0.96 }}
           onClick={() => {
-            window.open("/Aaditya-Bagde-Resume.docx", "_blank");
-            showToast("Downloading Resume", "Please wait...");
+            window.open("/aaditya_resume.pdf", "_blank");
+            showToast("Opening Resume", "Loading PDF...");
           }}
           className="text-[9px] sm:text-xs tracking-[0.2em] sm:tracking-[0.25em] uppercase px-4 sm:px-6 py-2.5 transition-all duration-300"
           style={{ background: "var(--red)", color: "#fff", border: "none", cursor: "pointer", fontFamily: "sans-serif" }}
         >
-          Download Resume
+          View Resume
         </motion.button>
       </div>
     </motion.nav>

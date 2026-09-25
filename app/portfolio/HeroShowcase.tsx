@@ -29,13 +29,7 @@ export default function FrameHero() {
         trigger: container,
         start: "top top",
         end: "bottom bottom",
-        scrub: 0.8,
-        snap: {
-          snapTo: [0, 0.5, 1],
-          duration: { min: 0.3, max: 0.6 },
-          delay: 0.18,
-          ease: "power1.out",
-        },
+        scrub: 0.6,
       },
     });
 
@@ -103,7 +97,7 @@ export default function FrameHero() {
   }, []);
 
   return (
-    <div ref={containerRef} style={{ height: "380vh", position: "relative" }}>
+    <div ref={containerRef} style={{ height: "260vh", position: "relative" }}>
       <div className="sticky top-0 w-full overflow-hidden" style={{ height: "100vh", backgroundColor: "#040608" }}>
 
         {/* Dark cinematic vignette */}
@@ -144,7 +138,7 @@ export default function FrameHero() {
         <div ref={titleRef} className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 pointer-events-none">
           <p className="text-[10px] tracking-[0.8em] uppercase mb-6"
             style={{ color: "var(--red)", fontFamily: "sans-serif" }}>
-            Aaditya Bagde Presents
+            AI & MACHINE LEARNING DEVELOPER
           </p>
           <h1 className="font-black uppercase leading-none" style={{ fontFamily: "sans-serif" }}>
             <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl"

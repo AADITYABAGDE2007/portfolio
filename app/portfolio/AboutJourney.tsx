@@ -11,12 +11,12 @@ const ACTS = [
   {
     label: "02 — HIGHER SECONDARY",
     title: "Class XII",
-    desc: "Completed Higher Secondary Education from Govt. Excellence School, Pandhurna, with 73% under the NCERT curriculum."
+    desc: "Completed Higher Secondary Education from Govt. Excellence School, Pandhurna, focusing on Science & Mathematics under the NCERT curriculum."
   },
   {
     label: "03 — HIGH SCHOOL",
     title: "Class X",
-    desc: "Completed High School from Govt. High School, Bhuli, with 71% under the NCERT curriculum."
+    desc: "Completed High School from Govt. High School, Bhuli, establishing foundational academic coursework under the NCERT curriculum."
   },
 ];
 
