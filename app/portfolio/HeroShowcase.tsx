@@ -212,11 +212,11 @@ export default function FrameHero() {
 
         {/* ── HERO CONTENT (PAGE 2) ── */}
         <div ref={heroRef} className="absolute inset-0 flex items-center justify-center px-4 sm:px-6 md:px-12 pointer-events-auto" style={{ opacity: 0 }}>
-          <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center justify-between gap-8 sm:gap-10 md:gap-8 lg:gap-12">
+          <div className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
             
             {/* Left: Text Content */}
-            <div className="flex-1 w-full md:w-[58%] text-center md:text-left flex flex-col items-center md:items-start md:pl-8 lg:pl-20">
-              <p className="text-[8px] sm:text-[9px] md:text-[10px] tracking-[0.45em] sm:tracking-[0.55em] md:tracking-[0.8em] uppercase mb-4" style={{ color: "var(--red)", fontFamily: "sans-serif" }}>
+            <div className="w-full lg:w-[58%] text-center lg:text-left flex flex-col items-center lg:items-start max-w-2xl lg:max-w-none mx-auto lg:mx-0 lg:pl-12 xl:pl-20">
+              <p className="text-[9px] sm:text-[10px] tracking-[0.55em] sm:tracking-[0.8em] uppercase mb-3 sm:mb-4" style={{ color: "var(--red)", fontFamily: "sans-serif" }}>
                 Hello, I&apos;m
               </p>
               <h2 className="font-black uppercase leading-none" style={{ fontFamily: "sans-serif" }}>
@@ -224,15 +224,15 @@ export default function FrameHero() {
                   style={{ color: "#fff", letterSpacing: "-0.02em", textShadow: "0 0 80px rgba(232,23,44,0.5), 0 4px 40px rgba(0,0,0,0.8)" }}>
                   AADITYA BAGDE
                 </span>
-                <span className="block text-base sm:text-xl md:text-2xl lg:text-3xl mt-3 italic"
+                <span className="block text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mt-2.5 sm:mt-3 italic"
                   style={{ color: "var(--red)", letterSpacing: "0.08em", textShadow: "0 0 60px rgba(232,23,44,0.7)" }}>
                   AI/ML STUDENT & DEVELOPER
                 </span>
               </h2>
-              <p className="mt-5 sm:mt-6 md:mt-7 lg:mt-8 max-w-md sm:max-w-lg md:max-w-xl text-sm md:text-base leading-relaxed text-gray-300 font-serif mx-auto md:mx-0" style={{ textShadow: "0 2px 20px rgba(0,0,0,1)" }}>
+              <p className="mt-5 sm:mt-6 lg:mt-8 max-w-md sm:max-w-lg lg:max-w-xl text-xs sm:text-sm md:text-base leading-relaxed text-gray-300 font-serif mx-auto lg:mx-0" style={{ textShadow: "0 2px 20px rgba(0,0,0,1)" }}>
                 Building intelligent solutions and modern digital experiences with AI, Python, React, and machine learning, while turning ideas into practical applications through clean, scalable, and user-focused development.
               </p>
-              <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
+              <div className="mt-6 sm:mt-8 flex flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
                 <button className="text-[10px] tracking-[0.22em] uppercase px-5 sm:px-6 py-2.5 transition-all duration-300 border border-[rgba(232,23,44,0.5)] hover:bg-[rgba(232,23,44,0.1)]"
                   style={{ color: "#fff", cursor: "pointer", fontFamily: "sans-serif" }} onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}>
                   View Projects
@@ -244,10 +244,10 @@ export default function FrameHero() {
               </div>
             </div>
 
-            {/* Right: Image */}
-            <div className="flex-1 w-full md:w-[42%] flex justify-center md:justify-end mt-6 md:mt-0">
-              <div className="relative w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] md:w-[280px] md:h-[280px] lg:w-[500px] lg:h-[500px]">
-                <Image src="/me.webp" alt="Aaditya Bagde" fill sizes="(min-width: 1024px) 500px, (min-width: 768px) 280px, 180px" className="object-contain" style={{ filter: "drop-shadow(0 0 60px rgba(232,23,44,0.4))" }} />
+            {/* Right: Image (Hidden on mobile and tablet, only visible on laptop/desktop lg screens and up) */}
+            <div className="hidden lg:flex flex-1 w-full lg:w-[42%] justify-end mt-0">
+              <div className="relative lg:w-[500px] lg:h-[500px]">
+                <Image src="/me.webp" alt="Aaditya Bagde" fill sizes="(min-width: 1024px) 500px, 0px" className="object-contain" style={{ filter: "drop-shadow(0 0 60px rgba(232,23,44,0.4))" }} priority />
                 <div
                   className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[94%] sm:w-[90%] md:w-[84%] h-[3px] pointer-events-none"
                   style={{
