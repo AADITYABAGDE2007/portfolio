@@ -1,11 +1,48 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import { showToast } from "./NotificationToast";
 
 export default function ContactSection() {
   const ref = useRef(null);
+  const formRef = useRef<HTMLFormElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("submitting");
+    setErrorMessage("");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xppayrgg", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: formData,
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        form.reset();
+        showToast("Message Sent", "Thanks for reaching out! I'll get back to you shortly.");
+      } else {
+        const data = await response.json();
+        setStatus("error");
+        setErrorMessage(data?.errors?.[0]?.message || "Failed to send message. Please try again.");
+      }
+    } catch {
+      setStatus("error");
+      setErrorMessage("Network error. Please try again or reach out directly on LinkedIn.");
+    }
+  };
+
   return (
     <section id="contact" ref={ref} className="relative overflow-hidden pt-20 sm:pt-24 md:pt-32 pb-14 sm:pb-16 bg-transparent">
       {/* Top Divider */}
@@ -71,59 +108,91 @@ export default function ContactSection() {
               {/* Subtle top red line */}
               <div className="absolute top-0 inset-x-0 h-0.5" style={{ background: "linear-gradient(90deg, var(--red), transparent)", opacity: 0.6 }} />
 
-              <form action="https://formspree.io/f/xppayrgg" method="POST" className="flex flex-col gap-8">
-                
-                <div className="relative">
-                  <label style={{ fontSize: 9, letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(240,240,240,0.4)", fontFamily: "sans-serif", display: "block", marginBottom: 8 }}>Your Name</label>
-                  <input 
-                    type="text" 
-                    name="Name" 
-                    required 
-                    className="w-full bg-transparent border-b border-[rgba(255,255,255,0.2)] focus:border-[var(--red)] text-white pb-3 outline-none transition-colors duration-300"
-                    style={{ fontSize: 16, fontFamily: "sans-serif" }}
-                  />
-                </div>
-
-                <div className="relative">
-                  <label style={{ fontSize: 9, letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(240,240,240,0.4)", fontFamily: "sans-serif", display: "block", marginBottom: 8 }}>Your Email</label>
-                  <input 
-                    type="email" 
-                    name="Email" 
-                    required 
-                    className="w-full bg-transparent border-b border-[rgba(255,255,255,0.2)] focus:border-[var(--red)] text-white pb-3 outline-none transition-colors duration-300"
-                    style={{ fontSize: 16, fontFamily: "sans-serif" }}
-                  />
-                </div>
-
-                <div className="relative">
-                  <label style={{ fontSize: 9, letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(240,240,240,0.4)", fontFamily: "sans-serif", display: "block", marginBottom: 8 }}>Message</label>
-                  <textarea 
-                    name="Message" 
-                    required 
-                    rows={4}
-                    className="w-full bg-transparent border-b border-[rgba(255,255,255,0.2)] focus:border-[var(--red)] text-white pb-3 outline-none transition-colors duration-300 resize-none"
-                    style={{ fontSize: 16, fontFamily: "sans-serif" }}
-                  ></textarea>
-                </div>
-
-                {/* Cinematic Submit Button */}
-                <button 
-                  type="submit" 
-                  className="group relative flex items-center justify-center gap-4 w-full py-5 overflow-hidden transition-all duration-500 mt-4 cursor-pointer"
-                  style={{ border: "1px solid rgba(232,23,44,0.4)", background: "rgba(232,23,44,0.05)" }}
+              {status === "success" ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="py-12 flex flex-col items-center justify-center text-center gap-4"
                 >
-                  <div className="absolute inset-0 bg-[var(--red)] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
+                  <div className="w-14 h-14 rounded-full border border-[var(--red)] flex items-center justify-center text-[var(--red)] text-2xl">
+                    ✓
+                  </div>
+                  <h3 className="text-xl font-bold text-white tracking-wide">Message Delivered</h3>
+                  <p className="text-sm text-white/60 max-w-xs">
+                    Thank you for reaching out. I have received your message and will respond promptly.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setStatus("idle")}
+                    className="mt-4 text-xs uppercase tracking-[0.2em] text-[var(--red)] hover:underline"
+                  >
+                    Send another message &rarr;
+                  </button>
+                </motion.div>
+              ) : (
+                <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-8">
+                  <div className="relative">
+                    <label style={{ fontSize: 9, letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(240,240,240,0.4)", fontFamily: "sans-serif", display: "block", marginBottom: 8 }}>Your Name</label>
+                    <input 
+                      type="text" 
+                      name="Name" 
+                      required 
+                      disabled={status === "submitting"}
+                      className="w-full bg-transparent border-b border-[rgba(255,255,255,0.2)] focus:border-[var(--red)] text-white pb-3 outline-none transition-colors duration-300 disabled:opacity-50"
+                      style={{ fontSize: 16, fontFamily: "sans-serif" }}
+                    />
+                  </div>
+
+                  <div className="relative">
+                    <label style={{ fontSize: 9, letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(240,240,240,0.4)", fontFamily: "sans-serif", display: "block", marginBottom: 8 }}>Your Email</label>
+                    <input 
+                      type="email" 
+                      name="Email" 
+                      required 
+                      disabled={status === "submitting"}
+                      className="w-full bg-transparent border-b border-[rgba(255,255,255,0.2)] focus:border-[var(--red)] text-white pb-3 outline-none transition-colors duration-300 disabled:opacity-50"
+                      style={{ fontSize: 16, fontFamily: "sans-serif" }}
+                    />
+                  </div>
+
+                  <div className="relative">
+                    <label style={{ fontSize: 9, letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(240,240,240,0.4)", fontFamily: "sans-serif", display: "block", marginBottom: 8 }}>Message</label>
+                    <textarea 
+                      name="Message" 
+                      required 
+                      rows={4}
+                      disabled={status === "submitting"}
+                      className="w-full bg-transparent border-b border-[rgba(255,255,255,0.2)] focus:border-[var(--red)] text-white pb-3 outline-none transition-colors duration-300 resize-none disabled:opacity-50"
+                      style={{ fontSize: 16, fontFamily: "sans-serif" }}
+                    ></textarea>
+                  </div>
+
+                  {status === "error" && (
+                    <div className="text-xs text-[var(--red)] tracking-wider">
+                      {errorMessage}
+                    </div>
+                  )}
+
+                  {/* Cinematic Submit Button */}
+                  <button 
+                    type="submit" 
+                    disabled={status === "submitting"}
+                    className="group relative flex items-center justify-center gap-4 w-full py-5 overflow-hidden transition-all duration-500 mt-4 cursor-pointer disabled:cursor-not-allowed disabled:opacity-60"
+                    style={{ border: "1px solid rgba(232,23,44,0.4)", background: "rgba(232,23,44,0.05)" }}
+                  >
+                    <div className="absolute inset-0 bg-[var(--red)] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
+                    
+                    <span className="relative z-10 text-xs tracking-[0.4em] uppercase text-white font-bold group-hover:text-black transition-colors duration-500" style={{ fontFamily: "sans-serif" }}>
+                      {status === "submitting" ? "Sending..." : "Send Message"}
+                    </span>
+                    
+                    <span className="relative z-10 transform group-hover:translate-x-2 transition-transform duration-500 text-[var(--red)] group-hover:text-black">
+                      &rarr;
+                    </span>
+                  </button>
                   
-                  <span className="relative z-10 text-xs tracking-[0.4em] uppercase text-white font-bold group-hover:text-black transition-colors duration-500" style={{ fontFamily: "sans-serif" }}>
-                    Send Message
-                  </span>
-                  
-                  <span className="relative z-10 transform group-hover:translate-x-2 transition-transform duration-500 text-[var(--red)] group-hover:text-black">
-                    &rarr;
-                  </span>
-                </button>
-                
-              </form>
+                </form>
+              )}
             </div>
           </motion.div>
           

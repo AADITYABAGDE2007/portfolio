@@ -73,6 +73,13 @@ export default function CertificationsSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const amount = direction === "left" ? -380 : 380;
+      scrollRef.current.scrollBy({ left: amount, behavior: "smooth" });
+    }
+  };
+
   return (
     <section id="certifications" ref={ref} className="relative overflow-hidden" style={{ background: "#040608" }}>
       <div className="w-full h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(232,23,44,0.25), transparent)" }} />
@@ -80,7 +87,7 @@ export default function CertificationsSection() {
       <div className="relative z-10 py-20 sm:py-24 md:py-28">
         {/* Header */}
         <div className="px-4 sm:px-6 md:px-12 max-w-7xl mx-auto mb-12 sm:mb-16">
-          <div className="flex flex-col lg:flex-row lg:items-end gap-8">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
             <div>
               <motion.p initial={{ opacity: 0, x: -20 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7 }}
                 style={{ fontSize: 10, letterSpacing: "0.7em", textTransform: "uppercase", color: "var(--red)", fontFamily: "sans-serif", marginBottom: 14 }}>
@@ -91,10 +98,28 @@ export default function CertificationsSection() {
                 CERTIFIED<br /><span className="red-gradient">MASTERY.</span>
               </motion.h2>
             </div>
-            <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.8, delay: 0.3 }}
-              style={{ maxWidth: 420, fontSize: 12, lineHeight: 1.9, color: "rgba(240,240,240,0.3)", fontFamily: "sans-serif" }}>
-              Continuous learning and professional validation. A curated collection of the most impactful credentials.
-            </motion.p>
+            <div className="flex flex-col gap-4">
+              <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.8, delay: 0.3 }}
+                style={{ maxWidth: 420, fontSize: 12, lineHeight: 1.9, color: "rgba(240,240,240,0.3)", fontFamily: "sans-serif" }}>
+                Continuous learning and professional validation. A curated collection of the most impactful credentials.
+              </motion.p>
+              <div className="hidden sm:flex items-center gap-2 self-start lg:self-end">
+                <button
+                  onClick={() => scroll("left")}
+                  className="w-9 h-9 border border-white/10 hover:border-[var(--red)] flex items-center justify-center text-white/60 hover:text-white transition-colors duration-300"
+                  aria-label="Scroll certifications left"
+                >
+                  &larr;
+                </button>
+                <button
+                  onClick={() => scroll("right")}
+                  className="w-9 h-9 border border-white/10 hover:border-[var(--red)] flex items-center justify-center text-white/60 hover:text-white transition-colors duration-300"
+                  aria-label="Scroll certifications right"
+                >
+                  &rarr;
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 

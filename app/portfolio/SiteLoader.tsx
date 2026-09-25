@@ -6,8 +6,19 @@ export default function Loader() {
   const [phase, setPhase] = useState<"hold" | "split" | "done">("hold");
 
   useEffect(() => {
-    const t1 = setTimeout(() => setPhase("split"), 1600);
-    const t2 = setTimeout(() => setPhase("done"),  2800);
+    // Only show full loader on first visit per session
+    try {
+      if (sessionStorage.getItem("visited_loader")) {
+        setPhase("done");
+        return;
+      }
+      sessionStorage.setItem("visited_loader", "true");
+    } catch {
+      // In case private browsing blocks sessionStorage
+    }
+
+    const t1 = setTimeout(() => setPhase("split"), 900);
+    const t2 = setTimeout(() => setPhase("done"),  1750);
     return () => { clearTimeout(t1); clearTimeout(t2); };
   }, []);
 

@@ -5,13 +5,13 @@ import { motion, useInView } from "framer-motion";
 const SKILL_CATEGORIES = [
   {
     title: "LANGUAGES",
-    skills: ["Python", "C++", "C", "JavaScript (ES6+)"],
+    skills: ["Python", "C++", "C", "JavaScript (ES6+)", "TypeScript"],
     desc: "Foundation in data structures, algorithmic problem solving, and modern web scripting."
   },
   {
     title: "FRONTEND",
-    skills: ["React.js", "JSX", "Tailwind CSS", "HTML5", "CSS3", "React Router DOM", "Axios"],
-    desc: "Building responsive, cross-device UIs and optimizing web performance."
+    skills: ["React.js", "Next.js", "Tailwind CSS", "HTML5", "CSS3", "REST Integration"],
+    desc: "Building high-performance, responsive, component-driven web applications."
   },
   {
     title: "ML & DATA",
@@ -20,8 +20,8 @@ const SKILL_CATEGORIES = [
   },
   {
     title: "BACKEND & TOOLS",
-    skills: ["FastAPI", "REST APIs", "MySQL", "Git", "GitHub", "VS Code"],
-    desc: "Server-side integration, version control workflows, and root-cause debugging."
+    skills: ["FastAPI", "REST APIs", "MySQL", "Git", "GitHub", "Postman", "Linux"],
+    desc: "Server-side architecture, API testing, version control, and Linux environment workflows."
   },
 ];
 
