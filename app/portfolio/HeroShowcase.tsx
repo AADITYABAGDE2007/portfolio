@@ -29,71 +29,71 @@ export default function FrameHero() {
         trigger: container,
         start: "top top",
         end: "bottom bottom",
-        scrub: 0.5,
+        scrub: 0.8,
         snap: {
           snapTo: [0, 0.5, 1],
-          duration: { min: 0.2, max: 0.45 },
-          delay: 0.05,
-          ease: "power2.inOut",
+          duration: { min: 0.3, max: 0.6 },
+          delay: 0.18,
+          ease: "power1.out",
         },
       },
     });
 
-    // ── PAGE 1 (Initial: 0 -> 0.35) ──
-    // Main Title fades out quickly on 1st scroll
-    tl.to(titleRef.current, { opacity: 0, y: -35, duration: 0.25 }, 0.08);
+    // ── PAGE 1 (Initial: 0 -> 0.32) ──
+    // Page 1 Title & Caption 1 fade out smoothly
+    tl.to(titleRef.current, { opacity: 0, y: -30, duration: 0.18 }, 0.14);
     if (captionRefs.current[0]) {
-      tl.to(captionRefs.current[0], { opacity: 0, y: -20, duration: 0.2 }, 0.1);
+      tl.to(captionRefs.current[0], { opacity: 0, y: -15, duration: 0.15 }, 0.15);
     }
     if (scrollCueRef.current) {
-      tl.to(scrollCueRef.current, { opacity: 0, duration: 0.15 }, 0.08);
+      tl.to(scrollCueRef.current, { opacity: 0, duration: 0.12 }, 0.1);
     }
 
-    // ── PAGE 2 (Centered at 0.5: 0.28 -> 0.72) ──
-    // Hero profile + Caption 2 fade in
+    // ── PAGE 2 (Centered at 0.5, solid & comfortable plateau) ──
+    // Hero profile + Caption 2 fade in, stay solid, then fade out
     if (heroRef.current) {
       tl.fromTo(
         heroRef.current,
-        { opacity: 0, y: 35, pointerEvents: "none" },
-        { opacity: 1, y: 0, pointerEvents: "auto", duration: 0.22 },
-        0.3
+        { opacity: 0, y: 30, pointerEvents: "none" },
+        { opacity: 1, y: 0, pointerEvents: "auto", duration: 0.18 },
+        0.26
       );
       tl.to(
         heroRef.current,
-        { opacity: 0, y: -35, pointerEvents: "none", duration: 0.2 },
-        0.65
+        { opacity: 0, y: -30, pointerEvents: "none", duration: 0.16 },
+        0.62
       );
     }
     if (captionRefs.current[1]) {
       tl.fromTo(
         captionRefs.current[1],
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.2 },
-        0.32
+        { opacity: 0, y: 15 },
+        { opacity: 1, y: 0, duration: 0.18 },
+        0.28
       );
       tl.to(
         captionRefs.current[1],
-        { opacity: 0, y: -20, duration: 0.2 },
-        0.65
+        { opacity: 0, y: -15, duration: 0.16 },
+        0.62
       );
     }
 
-    // ── PAGE 3 (Centered at 1.0: 0.7 -> 1.0) ──
-    // About Me + Caption 3 fade in
+    // ── PAGE 3 (0.70 -> 1.0, solid plateau) ──
+    // About Me + Caption 3 fade in gracefully
     if (aboutRef.current) {
       tl.fromTo(
         aboutRef.current,
-        { opacity: 0, y: 35 },
-        { opacity: 1, y: 0, duration: 0.22 },
-        0.75
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.18 },
+        0.70
       );
     }
     if (captionRefs.current[2]) {
       tl.fromTo(
         captionRefs.current[2],
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.2 },
-        0.78
+        { opacity: 0, y: 15 },
+        { opacity: 1, y: 0, duration: 0.18 },
+        0.72
       );
     }
 
@@ -103,7 +103,7 @@ export default function FrameHero() {
   }, []);
 
   return (
-    <div ref={containerRef} style={{ height: "240vh", position: "relative" }}>
+    <div ref={containerRef} style={{ height: "380vh", position: "relative" }}>
       <div className="sticky top-0 w-full overflow-hidden" style={{ height: "100vh", backgroundColor: "#040608" }}>
 
         {/* Dark cinematic vignette */}
