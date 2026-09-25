@@ -6,20 +6,19 @@ import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
-
-
 const CAPTIONS = [
-  { at: 0.05, text: "Curiosity drives.", sub: "Creation follows." },
-  { at: 0.35, text: "Ideas take shape.", sub: "One line at a time." },
-  { at: 0.65, text: "Always evolving.", sub: "Always building." },
+  { text: "Curiosity drives.", sub: "Creation follows." },
+  { text: "Ideas take shape.", sub: "One line at a time." },
+  { text: "Always evolving.", sub: "Always building." },
 ];
 
 export default function FrameHero() {
-  const containerRef  = useRef<HTMLDivElement>(null);
-  const titleRef      = useRef<HTMLDivElement>(null);
-  const captionRefs   = useRef<(HTMLDivElement | null)[]>([]);
-  const heroRef       = useRef<HTMLDivElement>(null);
-  const aboutRef      = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const captionRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const scrollCueRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -30,31 +29,72 @@ export default function FrameHero() {
         trigger: container,
         start: "top top",
         end: "bottom bottom",
-        scrub: 1.2,
+        scrub: 0.5,
+        snap: {
+          snapTo: [0, 0.5, 1],
+          duration: { min: 0.2, max: 0.45 },
+          delay: 0.05,
+          ease: "power2.inOut",
+        },
       },
     });
 
-    // Title fades out as scroll begins
-    tl.to(titleRef.current, { opacity: 0, y: -40, duration: 0.08 }, 0.06);
-
-    // Captions (bottom left)
-    captionRefs.current.forEach((el, i) => {
-      if (!el) return;
-      const start = CAPTIONS[i].at;
-      tl.fromTo(el, { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.07 }, start);
-      tl.to(el, { opacity: 0, y: -20, duration: 0.05 }, start + 0.12);
-    });
-
-    // Hero Content
-    if (heroRef.current) {
-      tl.fromTo(heroRef.current, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.1 }, 0.15);
-      tl.to(heroRef.current, { opacity: 0, y: -40, duration: 0.08 }, 0.40);
+    // ── PAGE 1 (Initial: 0 -> 0.35) ──
+    // Main Title fades out quickly on 1st scroll
+    tl.to(titleRef.current, { opacity: 0, y: -35, duration: 0.25 }, 0.08);
+    if (captionRefs.current[0]) {
+      tl.to(captionRefs.current[0], { opacity: 0, y: -20, duration: 0.2 }, 0.1);
+    }
+    if (scrollCueRef.current) {
+      tl.to(scrollCueRef.current, { opacity: 0, duration: 0.15 }, 0.08);
     }
 
-    // About Content
+    // ── PAGE 2 (Centered at 0.5: 0.28 -> 0.72) ──
+    // Hero profile + Caption 2 fade in
+    if (heroRef.current) {
+      tl.fromTo(
+        heroRef.current,
+        { opacity: 0, y: 35, pointerEvents: "none" },
+        { opacity: 1, y: 0, pointerEvents: "auto", duration: 0.22 },
+        0.3
+      );
+      tl.to(
+        heroRef.current,
+        { opacity: 0, y: -35, pointerEvents: "none", duration: 0.2 },
+        0.65
+      );
+    }
+    if (captionRefs.current[1]) {
+      tl.fromTo(
+        captionRefs.current[1],
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.2 },
+        0.32
+      );
+      tl.to(
+        captionRefs.current[1],
+        { opacity: 0, y: -20, duration: 0.2 },
+        0.65
+      );
+    }
+
+    // ── PAGE 3 (Centered at 1.0: 0.7 -> 1.0) ──
+    // About Me + Caption 3 fade in
     if (aboutRef.current) {
-      tl.fromTo(aboutRef.current, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.1 }, 0.55);
-      tl.to(aboutRef.current, { opacity: 0, y: -40, duration: 0.08 }, 0.85);
+      tl.fromTo(
+        aboutRef.current,
+        { opacity: 0, y: 35 },
+        { opacity: 1, y: 0, duration: 0.22 },
+        0.75
+      );
+    }
+    if (captionRefs.current[2]) {
+      tl.fromTo(
+        captionRefs.current[2],
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.2 },
+        0.78
+      );
     }
 
     return () => {
@@ -63,7 +103,7 @@ export default function FrameHero() {
   }, []);
 
   return (
-    <div ref={containerRef} style={{ height: "600vh", position: "relative" }}>
+    <div ref={containerRef} style={{ height: "240vh", position: "relative" }}>
       <div className="sticky top-0 w-full overflow-hidden" style={{ height: "100vh", backgroundColor: "#040608" }}>
 
         {/* Dark cinematic vignette */}
@@ -79,44 +119,17 @@ export default function FrameHero() {
         {/* Cinematic letterbox — top bar */}
         <div className="absolute inset-x-0 top-0 h-14 pointer-events-none" style={{ background: "rgba(0,0,0,0.6)" }} />
 
-        {/* Cinematic letterbox — bottom ticker bar */}
-        <div className="absolute inset-x-0 bottom-0 h-14 pointer-events-none overflow-hidden"
-          style={{ background: "#000", borderTop: "1px solid rgba(232,23,44,0.25)" }}>
-          <div style={{
-            display: "flex",
-            alignItems: "center",
-            height: "100%",
-            whiteSpace: "nowrap",
-            animation: "tickerScroll 18s linear infinite",
-          }}>
-            {Array.from({ length: 6 }).map((_, i) => (
-              <span key={i} style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "clamp(20px, 4vw, 60px)",
-                paddingRight: "clamp(20px, 4vw, 60px)",
-                fontSize: "clamp(10px, 1vw, 13px)",
-                fontFamily: "sans-serif",
-                letterSpacing: "0.35em",
-                textTransform: "uppercase",
-                color: "rgba(240,240,240,0.85)",
-                fontWeight: 700,
-              }}>
-                <span style={{ color: "rgba(232,23,44,0.7)", fontSize: "8px" }}>◆</span>
-                <span>AADITYA BAGDE</span>
-                <span style={{ color: "rgba(232,23,44,0.5)" }}>—</span>
-                <span style={{ color: "var(--red)" }}>AI / ML</span>
-                <span style={{ color: "rgba(232,23,44,0.5)" }}>—</span>
-                <span style={{ color: "rgba(240,240,240,0.85)" }}>SOFTWARE DEVELOPMENT</span>
-                <span style={{ color: "rgba(232,23,44,0.5)" }}>—</span>
-                <span style={{ color: "rgba(240,240,240,0.4)", fontWeight: 400 }}>2024—2028</span>
-                <span style={{ color: "rgba(232,23,44,0.7)", fontSize: "8px" }}>◆</span>
-              </span>
-            ))}
-          </div>
+        {/* Sleek bottom divider with subtle glowing center */}
+        <div className="absolute inset-x-0 bottom-0 pointer-events-none z-20">
+          <div className="w-full h-px" style={{
+            background: "linear-gradient(90deg, transparent 0%, rgba(232,23,44,0.2) 15%, rgba(232,23,44,0.7) 50%, rgba(232,23,44,0.2) 85%, transparent 100%)",
+            boxShadow: "0 0 12px rgba(232,23,44,0.3)"
+          }} />
+          <div className="w-full h-px" style={{
+            background: "linear-gradient(90deg, transparent 30%, rgba(255,255,255,0.12) 50%, transparent 70%)",
+            marginTop: "1px"
+          }} />
         </div>
-
-
 
         {/* Red scan line */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.025]">
@@ -127,7 +140,7 @@ export default function FrameHero() {
         {/* Web grid */}
         <div className="absolute inset-0 web-bg pointer-events-none opacity-30" />
 
-        {/* ── INITIAL TITLE (fades out on scroll) ── */}
+        {/* ── INITIAL TITLE (PAGE 1) ── */}
         <div ref={titleRef} className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 pointer-events-none">
           <p className="text-[10px] tracking-[0.8em] uppercase mb-6"
             style={{ color: "var(--red)", fontFamily: "sans-serif" }}>
@@ -160,12 +173,12 @@ export default function FrameHero() {
           </div>
         </div>
 
-        {/* Scroll captions — left side, small */}
+        {/* Scroll captions — left side, exactly 3 comments (one for each page) */}
         <div className="absolute pointer-events-none hidden md:block"
-          style={{ left: "clamp(24px, 5vw, 72px)", bottom: "clamp(80px, 12vh, 130px)", width: "clamp(280px, 38vw, 520px)" }}>
+          style={{ left: "clamp(24px, 5vw, 72px)", bottom: "clamp(30px, 5vh, 50px)", width: "clamp(280px, 38vw, 520px)", zIndex: 25 }}>
           {CAPTIONS.map((c, i) => (
             <div key={c.text} ref={(el) => { captionRefs.current[i] = el; }}
-              className="absolute bottom-0" style={{ opacity: 0, left: 0 }}>
+              className="absolute bottom-0" style={{ opacity: i === 0 ? 1 : 0, left: 0 }}>
               {/* Small red accent line */}
               <div style={{ width: 28, height: 2, background: "var(--red)", marginBottom: 10, opacity: 0.8 }} />
               <p style={{
@@ -197,7 +210,7 @@ export default function FrameHero() {
           ))}
         </div>
 
-        {/* ── HERO CONTENT (SCROLL PHASE 1) ── */}
+        {/* ── HERO CONTENT (PAGE 2) ── */}
         <div ref={heroRef} className="absolute inset-0 flex items-center justify-center px-4 sm:px-6 md:px-12 pointer-events-auto" style={{ opacity: 0 }}>
           <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center justify-between gap-8 sm:gap-10 md:gap-8 lg:gap-12">
             
@@ -248,7 +261,7 @@ export default function FrameHero() {
           </div>
         </div>
 
-        {/* ── ABOUT CONTENT (SCROLL PHASE 2) ── */}
+        {/* ── ABOUT CONTENT (PAGE 3) ── */}
         <div ref={aboutRef} className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 pointer-events-none" style={{ opacity: 0 }}>
           <p className="text-[8px] sm:text-[9px] md:text-[10px] tracking-[0.45em] sm:tracking-[0.55em] md:tracking-[0.8em] uppercase mb-4" style={{ color: "var(--red)", fontFamily: "sans-serif" }}>
             ABOUT ME
@@ -266,13 +279,11 @@ export default function FrameHero() {
         </div>
 
         {/* Scroll cue */}
-        <div className="absolute bottom-10 sm:bottom-14 md:bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
+        <div ref={scrollCueRef} className="absolute bottom-10 sm:bottom-14 md:bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 z-20 pointer-events-none">
           <span className="text-[9px] tracking-[0.5em] uppercase" style={{ color: "var(--red)", fontFamily: "sans-serif" }}>Scroll</span>
-          <div className="w-px h-10 bg-gradient-to-b from-[#e8172c] to-transparent animate-pulse" />
+          <div className="w-px h-8 bg-gradient-to-b from-[#e8172c] to-transparent animate-pulse" />
         </div>
       </div>
     </div>
   );
 }
-
-

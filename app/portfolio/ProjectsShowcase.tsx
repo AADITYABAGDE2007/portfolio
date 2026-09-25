@@ -9,39 +9,31 @@ const POWERS = [
     stat: "Full Stack",
     statLabel: "Application",
     desc: "A full-stack platform integrating frontend, backend services, and machine-learning capabilities.",
-    repoLink: "https://github.com/AADITYABAGDE2007"
+    repoLink: "https://github.com/AADITYABAGDE2007/Krishi-Cart"
   },
   {
     n: "02",
-    title: "Music Mood Recommendation",
-    stat: "Machine Learning",
-    statLabel: "Recommendation",
-    desc: "A personalized music recommendation system built with React, Tailwind CSS, and Scikit-learn.",
-    repoLink: "https://github.com/AADITYABAGDE2007"
-  },
-  {
-    n: "03",
-    title: "Text Translator",
+    title: "Translator",
     stat: "API Integration",
     statLabel: "Web Application",
     desc: "A multi-language translation application powered by React, Axios, and Rapid API.",
-    repoLink: "https://github.com/AADITYABAGDE2007"
+    repoLink: "https://github.com/AADITYABAGDE2007/Translator"
   },
   {
-    n: "04",
+    n: "03",
     title: "Expense Tracker",
     stat: "React + Vite",
     statLabel: "Web Application",
     desc: "A responsive expense management application designed for tracking and organizing personal finances.",
-    repoLink: "https://github.com/AADITYABAGDE2007"
+    repoLink: "https://github.com/AADITYABAGDE2007/Expense-Tracker-app"
   },
   {
-    n: "05",
+    n: "04",
     title: "Lost & Found",
     stat: "Flask + SQLite",
     statLabel: "Web Application",
     desc: "A web-based lost-and-found system for managing item submissions and search functionality.",
-    repoLink: "https://github.com/AADITYABAGDE2007"
+    repoLink: "https://github.com/AADITYABAGDE2007/lost-and-found"
   },
 ];
 
@@ -143,7 +135,7 @@ export default function PowersSection() {
                 href={p.repoLink}
                 target="_blank"
                 rel="noreferrer"
-                className="absolute bottom-0 right-0 bg-white flex items-end justify-end opacity-80 hover:opacity-100 transition-all duration-300 group"
+                className="absolute bottom-0 right-0 bg-white flex items-end justify-end opacity-80 hover:opacity-100 transition-all duration-300 group/btn cursor-pointer z-20"
                 style={{
                   width: 44,
                   height: 44,
@@ -151,9 +143,9 @@ export default function PowersSection() {
                   paddingRight: 10,
                   paddingBottom: 8,
                 }}
-                aria-label="View on GitHub"
+                aria-label={`View ${p.title} on GitHub`}
               >
-                <span className="text-[var(--red)] text-lg font-bold transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300">
+                <span className="text-[var(--red)] text-lg font-bold transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-300">
                   &#8599;
                 </span>
               </a>
