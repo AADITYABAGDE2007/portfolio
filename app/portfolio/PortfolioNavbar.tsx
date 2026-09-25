@@ -79,18 +79,17 @@ export default function Navbar() {
 
           {/* Right actions: Desktop CTA + Mobile Hamburger */}
           <div className="flex items-center gap-3">
-            <motion.button
+            <motion.a
+              href="/aaditya_resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.04, boxShadow: "0 0 24px rgba(232,23,44,0.35)" }}
               whileTap={{ scale: 0.96 }}
-              onClick={() => {
-                window.open("/aaditya_resume.pdf", "_blank");
-                showToast("Opening Resume", "Loading PDF...");
-              }}
-              className="text-[9px] sm:text-xs tracking-[0.2em] sm:tracking-[0.25em] uppercase px-4 sm:px-6 py-2.5 transition-all duration-300"
-              style={{ background: "var(--red)", color: "#fff", border: "none", cursor: "pointer", fontFamily: "sans-serif" }}
+              className="text-[9px] sm:text-xs tracking-[0.2em] sm:tracking-[0.25em] uppercase px-4 sm:px-6 py-2.5 transition-all duration-300 inline-flex items-center justify-center font-bold"
+              style={{ background: "var(--red)", color: "#fff", textDecoration: "none", cursor: "pointer", fontFamily: "sans-serif" }}
             >
               View Resume
-            </motion.button>
+            </motion.a>
 
             {/* Mobile Hamburger Button */}
             <button
@@ -131,6 +130,16 @@ export default function Navbar() {
                   {label}
                 </button>
               ))}
+              <a
+                href="/aaditya_resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileOpen(false)}
+                className="mt-2 text-center text-xs tracking-[0.25em] uppercase py-3 px-4 bg-[var(--red)] text-white font-bold transition-all duration-300 flex items-center justify-center gap-2"
+                style={{ fontFamily: "sans-serif", textDecoration: "none" }}
+              >
+                View Resume (PDF) &rarr;
+              </a>
             </div>
           </motion.div>
         )}

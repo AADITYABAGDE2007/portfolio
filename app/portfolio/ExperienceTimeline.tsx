@@ -20,7 +20,7 @@ const EXPERIENCES = [
     date: "Jan 2026 — Feb 2026",
     bullets: [
       "Improved cross-device load performance by ~30% using React.js and Tailwind CSS.",
-      "Reduced API data-fetch time by ~15% by integrating Axios and React Router DOM.",
+      "Optimized client-side API data fetching and state caching with Axios interceptors, reducing perceived latency by ~15%.",
       "Strengthened debugging accuracy and turnaround time in live sprints.",
     ],
     align: "right",
@@ -103,7 +103,7 @@ export default function ExperienceSection() {
                         {exp.role}
                       </h3>
                       
-                      <div className="flex flex-wrap md:flex-nowrap gap-2 md:gap-3 mb-6 md:justify-end">
+                      <div className="flex flex-wrap md:flex-nowrap gap-2 md:gap-3 mb-3 md:mb-6 md:justify-end">
                         <span style={{ fontSize: 11, fontWeight: 700, fontFamily: "sans-serif", color: "var(--red)", letterSpacing: "0.15em", textTransform: "uppercase" }}>
                           {exp.company}
                         </span>
@@ -111,6 +111,15 @@ export default function ExperienceSection() {
                         <span style={{ fontSize: 11, fontFamily: "sans-serif", color: "rgba(240,240,240,0.5)", letterSpacing: "0.15em" }}>
                           {exp.date}
                         </span>
+                      </div>
+
+                      {/* Mobile Tech Pills */}
+                      <div className="flex flex-wrap gap-1.5 md:hidden mb-5">
+                        {exp.tech.split(", ").map(t => (
+                          <span key={t} className="text-[9px] uppercase tracking-wider px-2 py-0.5 border border-white/10 bg-white/5 text-white/70">
+                            {t}
+                          </span>
+                        ))}
                       </div>
                       
                       <ul className="space-y-4" style={{ listStyleType: "none", padding: 0 }}>
@@ -179,7 +188,7 @@ export default function ExperienceSection() {
                         {exp.role}
                       </h3>
                       
-                      <div className="flex flex-wrap md:flex-nowrap gap-2 md:gap-3 mb-6 justify-start">
+                      <div className="flex flex-wrap md:flex-nowrap gap-2 md:gap-3 mb-3 md:mb-6 justify-start">
                         <span style={{ fontSize: 11, fontWeight: 700, fontFamily: "sans-serif", color: "var(--red)", letterSpacing: "0.15em", textTransform: "uppercase" }}>
                           {exp.company}
                         </span>
@@ -187,6 +196,15 @@ export default function ExperienceSection() {
                         <span style={{ fontSize: 11, fontFamily: "sans-serif", color: "rgba(240,240,240,0.5)", letterSpacing: "0.15em" }}>
                           {exp.date}
                         </span>
+                      </div>
+
+                      {/* Mobile Tech Pills */}
+                      <div className="flex flex-wrap gap-1.5 md:hidden mb-5">
+                        {exp.tech.split(", ").map(t => (
+                          <span key={t} className="text-[9px] uppercase tracking-wider px-2 py-0.5 border border-white/10 bg-white/5 text-white/70">
+                            {t}
+                          </span>
+                        ))}
                       </div>
                       
                       <ul className="space-y-4" style={{ listStyleType: "none", padding: 0 }}>

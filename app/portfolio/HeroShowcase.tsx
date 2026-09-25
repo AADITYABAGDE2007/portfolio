@@ -147,7 +147,7 @@ export default function FrameHero() {
                 letterSpacing: "-0.02em",
                 textShadow: "0 0 80px rgba(232,23,44,0.5), 0 4px 40px rgba(0,0,0,0.8)",
               }}>
-              BUILDING-INTELLIGENT
+              BUILDING INTELLIGENT
             </span>
             <span className="block text-sm sm:text-base md:text-lg lg:text-4xl xl:text-5xl mt-2 sm:mt-3 italic"
               style={{
@@ -268,7 +268,7 @@ export default function FrameHero() {
           </h2>
           <div className="mt-8 max-w-3xl flex flex-col gap-4 text-sm md:text-base leading-relaxed text-gray-300 font-serif"
             style={{ textShadow: "0 2px 20px rgba(0,0,0,1)" }}>
-            <p>I&apos;m an AI & ML undergraduate exploring machine learning, software development, and real-world applications. Currently pursuing B.Tech in Artificial Intelligence & Machine Learning at Bansal Institute of Science and Technology, Bhopal.</p>
+            <p>I&apos;m an AI & ML engineer focused on building practical, high-performance systems. Driven by curiosity to solve complex problems through machine learning models, modern web technologies, and clean architecture.</p>
           </div>
         </div>
 

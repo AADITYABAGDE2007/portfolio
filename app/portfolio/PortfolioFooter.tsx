@@ -23,7 +23,7 @@ export default function Footer() {
           <div className="flex flex-wrap gap-10 sm:gap-12 md:gap-24">
             <div className="flex flex-col gap-4">
               <h4 style={{ fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--red)", fontFamily: "sans-serif" }}>Navigation</h4>
-              {["Skills", "Projects", "Experience", "Certifications"].map(link => (
+              {["Education", "Skills", "Projects", "Experience", "Certifications", "Contact"].map(link => (
                 <a key={link} href={`#${link.toLowerCase()}`} style={{ fontSize: 12, color: "rgba(240,240,240,0.6)", fontFamily: "sans-serif" }} className="hover:text-white transition-colors duration-300">
                   {link}
                 </a>
