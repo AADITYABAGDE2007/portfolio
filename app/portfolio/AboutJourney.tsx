@@ -4,19 +4,19 @@ import { motion, useInView, useScroll, useTransform } from "framer-motion";
 
 const ACTS = [
   {
-    label: "01 — UNDERGRADUATE DEGREE",
-    title: "B.Tech in Artificial Intelligence & Machine Learning",
-    desc: "Bansal Institute of Science and Technology, Bhopal (2024 — 2028). Rigorous engineering curriculum covering AI systems, mathematical modeling, and software engineering."
+    label: "01 — B.TECH",
+    title: "Artificial Intelligence & Machine Learning",
+    desc: "Currently pursuing a B.Tech at Bansal Institute of Science and Technology, Bhopal, with a focus on AI/ML and practical technology development."
   },
   {
-    label: "02 — CORE COMPUTER SCIENCE",
-    title: "Data Structures, Algorithms & Systems",
-    desc: "Mastering asymptotic complexity, object-oriented design in C++/Python, dynamic programming, and relational database systems (DBMS)."
+    label: "02 — HIGHER SECONDARY",
+    title: "Class XII",
+    desc: "Completed Higher Secondary Education from Govt. Excellence School, Pandhurna, focusing on Science & Mathematics under the NCERT curriculum."
   },
   {
-    label: "03 — SPECIALIZED AI & ML LAB",
-    title: "Machine Learning, Data Engineering & Pipelines",
-    desc: "Practical focus on model training, predictive analytics, Scikit-learn workflows, and end-to-end data preparation with Pandas and NumPy."
+    label: "03 — HIGH SCHOOL",
+    title: "Class X",
+    desc: "Completed High School from Govt. High School, Bhuli, establishing foundational academic coursework under the NCERT curriculum."
   },
 ];
 

@@ -34,25 +34,6 @@ export default function SkillsSection() {
       {/* Background elements */}
       <div className="absolute inset-0 web-bg opacity-10 pointer-events-none" />
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[rgba(232,23,44,0.03)] to-transparent pointer-events-none" />
-      
-      {/* Giant Watermark */}
-      <div
-        className="absolute pointer-events-none select-none z-0 hidden md:block"
-        aria-hidden
-        style={{
-          top: "50%", left: "-5%",
-          transform: "translateY(-50%)",
-          fontSize: "clamp(80px, 18vw, 220px)",
-          fontWeight: 900,
-          fontFamily: "sans-serif",
-          letterSpacing: "-0.04em",
-          color: "rgba(255,255,255,0.02)",
-          lineHeight: 1,
-          whiteSpace: "nowrap",
-        }}
-      >
-        BUILT WITH
-      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         {/* Section Header */}
