@@ -68,22 +68,6 @@ export default function ContactSection() {
               Whether you have a project in mind, want to discuss machine learning implementations, or just want to connect. Send a message directly to my inbox.
             </p>
 
-            {/* Recruiter Quick Status: Availability & Location */}
-            <div className="w-full max-w-sm mb-6 p-3.5 bg-white/[0.02] border border-[rgba(232,23,44,0.25)] rounded-sm text-left">
-              <div className="flex items-center gap-2 mb-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-emerald-400 font-sans">
-                  Available for Internships
-                </span>
-              </div>
-              <div className="text-xs text-white/75 font-sans">
-                AI/ML & Software Roles · Summer / Fall 2026
-              </div>
-              <div className="text-[11px] text-white/50 font-sans mt-1">
-                📍 Bhopal, India · Open to Remote &amp; Relocation
-              </div>
-            </div>
-
             <div className="grid grid-cols-2 md:flex md:flex-col gap-3 sm:gap-4 md:gap-6 w-full max-w-sm mb-10 lg:mb-0">
               {[
                 { name: "Email", val: "bagdeaaditya507@gmail.com", link: "mailto:bagdeaaditya507@gmail.com" },
