@@ -23,24 +23,6 @@ const CERTIFICATES = [
   },
   {
     n: "03",
-    name: "Happieloop ML Internship",
-    issuer: "Happieloop Tech",
-    tag: "Industry Internship",
-    color: "#e8172c",
-    desc: "Official completion of the Machine Learning internship, validating real-world data pipeline and model training skills.",
-    certificateUrl: "/certificates/happieloop-ml-internship.pdf"
-  },
-  {
-    n: "04",
-    name: "Qskill Frontend Internship",
-    issuer: "SR INDIA / Qskill",
-    tag: "Industry Internship",
-    color: "#3b82f6",
-    desc: "Recognition of internship completion, proving expertise in React.js, Tailwind, and cross-device optimization.",
-    certificateUrl: "/certificates/qskill-frontend-internship.pdf"
-  },
-  {
-    n: "05",
     name: "Deloitte Data Analytics",
     issuer: "Deloitte & Forage",
     tag: "Enterprise Simulation",
@@ -49,7 +31,7 @@ const CERTIFICATES = [
     certificateUrl: "/certificates/deloitte-data-analytics.pdf"
   },
   {
-    n: "06",
+    n: "04",
     name: "Infosys DevOps",
     issuer: "Infosys Springboard",
     tag: "Professional Cert",
@@ -58,7 +40,7 @@ const CERTIFICATES = [
     certificateUrl: "/certificates/infosys-devops.pdf"
   },
   {
-    n: "07",
+    n: "05",
     name: "Infosys Python",
     issuer: "Infosys Springboard",
     tag: "Professional Cert",
@@ -174,7 +156,7 @@ export default function CertificationsSection() {
               </h3>
 
               {/* Description */}
-              <p style={{ fontSize: 12, color: "rgba(240,240,240,0.32)", fontFamily: "sans-serif", lineHeight: 1.85, marginBottom: 36, minHeight: 80 }}>
+              <p style={{ fontSize: 12, color: "rgba(240,240,240,0.65)", fontFamily: "sans-serif", lineHeight: 1.85, marginBottom: 36, minHeight: 80 }}>
                 {v.desc}
               </p>
 

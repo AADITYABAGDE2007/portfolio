@@ -49,12 +49,12 @@ export const EXPERIENCES_DATA: ExperienceItem[] = [
       {
         label: "Data Quality",
         value: "99%+",
-        desc: "Reduction in pipeline preprocessing errors through structured validation routines."
+        desc: "Eliminated dataset anomalies and missing entries through automated Pandas validation pipelines."
       },
       {
         label: "Iteration Speed",
         value: "Faster Cycles",
-        desc: "Modular script structures reduced setup time for training classification models."
+        desc: "Modular script structures reduced train/test iteration and hyperparameter tuning setup time."
       },
       {
         label: "Stack Depth",
@@ -97,12 +97,12 @@ export const EXPERIENCES_DATA: ExperienceItem[] = [
       {
         label: "Load Performance",
         value: "~30% Faster",
-        desc: "Measured responsiveness improvement across mobile and desktop benchmarks."
+        desc: "Audited via Chrome DevTools Network throttling & Lighthouse metrics after implementing lazy-loading and dynamic imports."
       },
       {
         label: "API Latency",
         value: "~15% Quicker",
-        desc: "Reduced data fetching lag via Axios interceptors and clean client routing."
+        desc: "Reduced redundant roundtrips via Axios request/response interceptors and optimized client-side state caching."
       },
       {
         label: "Certificate ID",

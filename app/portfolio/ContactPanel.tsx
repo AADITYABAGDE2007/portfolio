@@ -68,11 +68,27 @@ export default function ContactSection() {
               Whether you have a project in mind, want to discuss machine learning implementations, or just want to connect. Send a message directly to my inbox.
             </p>
 
+            {/* Recruiter Quick Status: Availability & Location */}
+            <div className="w-full max-w-sm mb-6 p-3.5 bg-white/[0.02] border border-[rgba(232,23,44,0.25)] rounded-sm text-left">
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-emerald-400 font-sans">
+                  Available for Internships
+                </span>
+              </div>
+              <div className="text-xs text-white/75 font-sans">
+                AI/ML & Software Roles · Summer / Fall 2026
+              </div>
+              <div className="text-[11px] text-white/50 font-sans mt-1">
+                📍 Bhopal, India · Open to Remote &amp; Relocation
+              </div>
+            </div>
+
             <div className="grid grid-cols-2 md:flex md:flex-col gap-3 sm:gap-4 md:gap-6 w-full max-w-sm mb-10 lg:mb-0">
               {[
+                { name: "Email", val: "bagdeaaditya507@gmail.com", link: "mailto:bagdeaaditya507@gmail.com" },
                 { name: "LinkedIn", val: "Connect", link: "https://www.linkedin.com/in/aaditya-bagde" },
                 { name: "GitHub", val: "View Repos", link: "https://github.com/AADITYABAGDE2007" },
-                { name: "HackerRank", val: "Solve", link: "https://www.hackerrank.com/profile/bagdeaaditya507" },
                 { name: "LeetCode", val: "Profile", link: "https://leetcode.com/u/aadityabagde/" }
               ].map((item, idx) => (
                 <motion.a 
@@ -88,7 +104,7 @@ export default function ContactSection() {
                   <span style={{ fontSize: 13, fontWeight: 600, color: "#fff", letterSpacing: "0.05em", fontFamily: "sans-serif" }} className="group-hover:text-[var(--red)] transition-colors duration-300">
                     {item.name}
                   </span>
-                  <span style={{ fontSize: 9, textTransform: "uppercase", letterSpacing: "0.2em", color: "rgba(255,255,255,0.4)", fontFamily: "sans-serif" }} className="group-hover:text-white transition-colors duration-300">
+                  <span style={{ fontSize: 9, textTransform: "uppercase", letterSpacing: "0.15em", color: "rgba(255,255,255,0.5)", fontFamily: "sans-serif" }} className="group-hover:text-white transition-colors duration-300 truncate max-w-[170px]">
                     {item.val} &rarr;
                   </span>
                 </motion.a>

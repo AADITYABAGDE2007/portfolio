@@ -39,7 +39,7 @@ export default function PowersSection() {
             </div>
             <div className="flex flex-col gap-4">
               <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.8, delay: 0.3 }}
-                style={{ maxWidth: 420, fontSize: 13, lineHeight: 1.85, color: "rgba(240,240,240,0.35)", fontFamily: "sans-serif" }}>
+                style={{ maxWidth: 420, fontSize: 13, lineHeight: 1.85, color: "rgba(240,240,240,0.65)", fontFamily: "sans-serif" }}>
                 The tools are only the beginning. Click any project to inspect its architecture, problem statement, and technical breakdown.
               </motion.p>
               <div className="hidden sm:flex items-center gap-2 self-start lg:self-end">
@@ -128,7 +128,7 @@ export default function PowersSection() {
                 </h3>
 
                 {/* Description */}
-                <p className="pointer-events-none" style={{ fontSize: 12, color: "rgba(240,240,240,0.32)", fontFamily: "sans-serif", lineHeight: 1.85, marginBottom: 40, minHeight: 80 }}>
+                <p className="pointer-events-none" style={{ fontSize: 12, color: "rgba(240,240,240,0.65)", fontFamily: "sans-serif", lineHeight: 1.85, marginBottom: 40, minHeight: 80 }}>
                   {p.desc}
                 </p>
 

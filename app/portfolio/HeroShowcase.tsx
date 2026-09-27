@@ -258,17 +258,17 @@ export default function FrameHero() {
         {/* ── ABOUT CONTENT (PAGE 3) ── */}
         <div ref={aboutRef} className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 pointer-events-none" style={{ opacity: 0 }}>
           <p className="text-[8px] sm:text-[9px] md:text-[10px] tracking-[0.45em] sm:tracking-[0.55em] md:tracking-[0.8em] uppercase mb-4" style={{ color: "var(--red)", fontFamily: "sans-serif" }}>
-            ABOUT ME
+            SPECIALIZATION &amp; FOCUS
           </p>
           <h2 className="font-black uppercase leading-none" style={{ fontFamily: "sans-serif" }}>
             <span className="block text-4xl md:text-5xl lg:text-6xl"
               style={{ color: "#fff", letterSpacing: "-0.02em", textShadow: "0 0 80px rgba(232,23,44,0.5), 0 4px 40px rgba(0,0,0,0.8)" }}>
-              CURIOUS. BUILDING. EVOLVING.
+              ENGINEERING INTELLIGENCE.
             </span>
           </h2>
-          <div className="mt-8 max-w-3xl flex flex-col gap-4 text-sm md:text-base leading-relaxed text-gray-300 font-serif"
+          <div className="mt-8 max-w-3xl flex flex-col gap-4 text-sm md:text-base leading-relaxed text-gray-200 font-serif"
             style={{ textShadow: "0 2px 20px rgba(0,0,0,1)" }}>
-            <p>I&apos;m an AI & ML engineer focused on building practical, high-performance systems. Driven by curiosity to solve complex problems through machine learning models, modern web technologies, and clean architecture.</p>
+            <p>Specializing in Deep Learning architectures, Computer Vision pipelines, and data-driven systems. Focused on connecting mathematical models with resilient, production-ready software engineering.</p>
           </div>
         </div>
 

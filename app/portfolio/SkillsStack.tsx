@@ -10,18 +10,18 @@ const SKILL_CATEGORIES = [
   },
   {
     title: "FRONTEND",
-    skills: ["React.js", "Next.js", "Tailwind CSS", "HTML5", "CSS3", "REST Integration"],
+    skills: ["React.js", "Next.js", "Tailwind CSS", "HTML5", "CSS3", "State Management"],
     desc: "Building high-performance, responsive, component-driven web applications."
   },
   {
     title: "ML & DATA",
-    skills: ["Pandas", "NumPy", "Matplotlib", "Scikit-learn", "PyTorch"],
-    desc: "Expertise in data preprocessing, model training, and performance evaluation."
+    skills: ["OpenCV", "Deep Learning / CNN", "Scikit-learn", "PyTorch", "Pandas", "NumPy"],
+    desc: "Expertise in computer vision, neural architectures, data preprocessing, and model evaluation."
   },
   {
     title: "BACKEND & TOOLS",
-    skills: ["FastAPI", "REST APIs", "MySQL", "Git", "GitHub", "Postman", "Linux"],
-    desc: "Server-side architecture, API testing, version control, and Linux environment workflows."
+    skills: ["Docker", "FastAPI", "MongoDB", "MySQL", "Git", "GitHub", "Postman", "Linux"],
+    desc: "Server-side services, containerization, databases, and Linux development workflows."
   },
 ];
 
@@ -78,7 +78,7 @@ export default function SkillsSection() {
                 {cat.title.slice(0, -2)}<span className="red-gradient">{cat.title.slice(-2)}</span>
               </h3>
               
-              <p style={{ fontSize: 14, lineHeight: 1.8, color: "rgba(240,240,240,0.4)", fontFamily: "Georgia, serif", marginBottom: 24 }}>
+              <p style={{ fontSize: 14, lineHeight: 1.8, color: "rgba(240,240,240,0.65)", fontFamily: "Georgia, serif", marginBottom: 24 }}>
                 {cat.desc}
               </p>
 

@@ -32,9 +32,9 @@ export default function Footer() {
             <div className="flex flex-col gap-4">
               <h4 style={{ fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--red)", fontFamily: "sans-serif" }}>Socials</h4>
               {[
+                { name: "Email", link: "mailto:bagdeaaditya507@gmail.com" },
                 { name: "LinkedIn", link: "https://www.linkedin.com/in/aaditya-bagde" },
                 { name: "GitHub", link: "https://github.com/AADITYABAGDE2007" },
-                { name: "HackerRank", link: "https://www.hackerrank.com/profile/bagdeaaditya507" },
                 { name: "LeetCode", link: "https://leetcode.com/u/aadityabagde/" }
               ].map(item => (
                 <a key={item.name} href={item.link} target="_blank" rel="noreferrer" style={{ fontSize: 12, color: "rgba(240,240,240,0.6)", fontFamily: "sans-serif" }} className="hover:text-white transition-colors duration-300">

@@ -110,11 +110,11 @@ export default function OriginSection() {
 
             {/* Body copy */}
             <motion.p initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.9, delay: 0.4 }}
-              style={{ fontSize: 14, lineHeight: 1.95, color: "rgba(240,240,240,0.55)", maxWidth: 440, marginBottom: 20 }}>
-              My journey in technology began with a foundation in science and continues through Artificial Intelligence & Machine Learning, where I focus on building practical skills and real-world applications.
+              style={{ fontSize: 14, lineHeight: 1.95, color: "rgba(240,240,240,0.75)", maxWidth: 440, marginBottom: 20 }}>
+              My journey in technology began with a foundation in science and continues through Artificial Intelligence &amp; Machine Learning, where I focus on building practical skills and real-world applications.
             </motion.p>
             <motion.p initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.9, delay: 0.5 }}
-              style={{ fontSize: 14, lineHeight: 1.95, color: "rgba(240,240,240,0.3)", maxWidth: 440, marginBottom: 56 }}>
+              style={{ fontSize: 14, lineHeight: 1.95, color: "rgba(240,240,240,0.6)", maxWidth: 440, marginBottom: 56 }}>
               Each chapter has shaped the way I learn, solve problems, and approach new challenges, preparing me for what comes next.
             </motion.p>
 
@@ -186,7 +186,7 @@ export default function OriginSection() {
                   </h4>
 
                   {/* Desc */}
-                  <p style={{ fontSize: 13, lineHeight: 1.85, color: "rgba(240,240,240,0.38)", maxWidth: 400 }}>
+                  <p style={{ fontSize: 13, lineHeight: 1.85, color: "rgba(240,240,240,0.65)", maxWidth: 400 }}>
                     {act.desc}
                   </p>
 
