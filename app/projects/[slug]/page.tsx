@@ -74,19 +74,32 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             <span>Back to Projects</span>
           </Link>
 
-          <div className="flex items-center gap-4">
-            <span className="text-[10px] tracking-[0.3em] uppercase text-white/40 hidden sm:inline" style={{ fontFamily: "sans-serif" }}>
-              Project {project.n} of 04
-            </span>
+          <div className="flex items-center gap-2 sm:gap-3">
+            <a
+              href="/aaditya_resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[9px] sm:text-xs tracking-[0.18em] uppercase px-3 sm:px-4 py-2 border border-white/15 hover:border-white/40 text-white/80 hover:text-white transition-all duration-300 font-semibold"
+              style={{ fontFamily: "sans-serif", textDecoration: "none" }}
+            >
+              Resume PDF
+            </a>
             <a
               href={project.repoLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[10px] sm:text-xs tracking-[0.2em] uppercase px-4 py-2 border border-[rgba(232,23,44,0.4)] hover:border-[var(--red)] bg-[rgba(232,23,44,0.08)] hover:bg-[var(--red)] text-white font-semibold transition-all duration-300"
-              style={{ fontFamily: "sans-serif" }}
+              className="text-[9px] sm:text-xs tracking-[0.18em] uppercase px-3 sm:px-4 py-2 border border-[rgba(232,23,44,0.4)] hover:border-[var(--red)] bg-[rgba(232,23,44,0.08)] hover:bg-[var(--red)] text-white font-semibold transition-all duration-300"
+              style={{ fontFamily: "sans-serif", textDecoration: "none" }}
             >
               GitHub Repo &rarr;
             </a>
+            <Link
+              href="/#contact"
+              className="text-[9px] sm:text-xs tracking-[0.18em] uppercase px-3.5 sm:px-4 py-2 bg-white text-black font-bold hover:bg-white/90 transition-all duration-300 hidden sm:inline-flex"
+              style={{ fontFamily: "sans-serif", textDecoration: "none" }}
+            >
+              Contact
+            </Link>
           </div>
         </div>
       </header>

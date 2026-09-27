@@ -68,7 +68,7 @@ export default function ContactSection() {
               Whether you have a project in mind, want to discuss machine learning implementations, or just want to connect. Send a message directly to my inbox.
             </p>
 
-            <div className="flex flex-col gap-6 w-full max-w-sm hidden md:flex">
+            <div className="grid grid-cols-2 md:flex md:flex-col gap-3 sm:gap-4 md:gap-6 w-full max-w-sm mb-10 lg:mb-0">
               {[
                 { name: "LinkedIn", val: "Connect", link: "https://www.linkedin.com/in/aaditya-bagde" },
                 { name: "GitHub", val: "View Repos", link: "https://github.com/AADITYABAGDE2007" },
@@ -83,12 +83,12 @@ export default function ContactSection() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.4 + (idx * 0.1) }}
-                  className="group flex items-center justify-between pb-4 border-b border-[rgba(255,255,255,0.05)] hover:border-[var(--red)] transition-colors duration-500"
+                  className="group flex items-center justify-between p-3 sm:p-3.5 md:p-0 md:pb-4 bg-white/[0.03] md:bg-transparent border border-white/10 md:border-0 md:border-b md:border-[rgba(255,255,255,0.05)] hover:border-[var(--red)] transition-colors duration-300"
                 >
-                  <span style={{ fontSize: 14, fontWeight: 600, color: "#fff", letterSpacing: "0.05em", fontFamily: "sans-serif" }} className="group-hover:text-[var(--red)] transition-colors duration-300">
+                  <span style={{ fontSize: 13, fontWeight: 600, color: "#fff", letterSpacing: "0.05em", fontFamily: "sans-serif" }} className="group-hover:text-[var(--red)] transition-colors duration-300">
                     {item.name}
                   </span>
-                  <span style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: "0.2em", color: "rgba(255,255,255,0.3)", fontFamily: "sans-serif" }} className="group-hover:text-white transition-colors duration-300">
+                  <span style={{ fontSize: 9, textTransform: "uppercase", letterSpacing: "0.2em", color: "rgba(255,255,255,0.4)", fontFamily: "sans-serif" }} className="group-hover:text-white transition-colors duration-300">
                     {item.val} &rarr;
                   </span>
                 </motion.a>

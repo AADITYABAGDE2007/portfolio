@@ -86,8 +86,7 @@ export default function PowersSection() {
                 width: "clamp(250px, 82vw, 360px)",
               }}
             >
-              <Link
-                href={`/projects/${p.slug}`}
+              <div
                 className="group flex flex-col h-full text-left"
                 style={{
                   border: "1px solid rgba(255,255,255,0.06)",
@@ -95,12 +94,18 @@ export default function PowersSection() {
                   padding: "36px 32px",
                   position: "relative",
                   overflow: "hidden",
-                  textDecoration: "none",
                   display: "flex",
                 }}
               >
+                {/* Clickable Card Link Overlay */}
+                <Link
+                  href={`/projects/${p.slug}`}
+                  className="absolute inset-0 z-10"
+                  aria-label={`View details for ${p.title}`}
+                />
+
                 {/* Top red accent */}
-                <div className="absolute inset-x-0 top-0 h-0.5"
+                <div className="absolute inset-x-0 top-0 h-0.5 pointer-events-none"
                   style={{ background: "linear-gradient(90deg, var(--red), transparent)", opacity: 0.5 }} />
 
                 {/* Hover glow */}
@@ -108,7 +113,7 @@ export default function PowersSection() {
                   style={{ background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232,23,44,0.08) 0%, transparent 70%)" }} />
 
                 {/* Top row: Number & View Details tag */}
-                <div className="flex items-center justify-between mb-7">
+                <div className="flex items-center justify-between mb-7 pointer-events-none">
                   <div style={{ fontSize: 10, fontWeight: 700, fontFamily: "sans-serif", letterSpacing: "0.25em", color: "rgba(232,23,44,0.4)" }}>
                     {p.n}
                   </div>
@@ -118,17 +123,17 @@ export default function PowersSection() {
                 </div>
 
                 {/* Title */}
-                <h3 style={{ fontSize: "clamp(20px, 2.5vw, 28px)", fontWeight: 900, fontFamily: "sans-serif", color: "#fff", letterSpacing: "-0.01em", lineHeight: 1.1, marginBottom: 16 }}>
+                <h3 className="pointer-events-none" style={{ fontSize: "clamp(20px, 2.5vw, 28px)", fontWeight: 900, fontFamily: "sans-serif", color: "#fff", letterSpacing: "-0.01em", lineHeight: 1.1, marginBottom: 16 }}>
                   {p.title}
                 </h3>
 
                 {/* Description */}
-                <p style={{ fontSize: 12, color: "rgba(240,240,240,0.32)", fontFamily: "sans-serif", lineHeight: 1.85, marginBottom: 40, minHeight: 80 }}>
+                <p className="pointer-events-none" style={{ fontSize: 12, color: "rgba(240,240,240,0.32)", fontFamily: "sans-serif", lineHeight: 1.85, marginBottom: 40, minHeight: 80 }}>
                   {p.desc}
                 </p>
 
                 {/* Stat */}
-                <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 20, marginTop: "auto", display: "flex", flexDirection: "column" }}>
+                <div className="pointer-events-none" style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 20, marginTop: "auto", display: "flex", flexDirection: "column" }}>
                   <div className="red-gradient" style={{ fontSize: "clamp(32px, 4vw, 48px)", fontWeight: 900, fontFamily: "sans-serif", letterSpacing: "-0.03em", lineHeight: 1, minHeight: "2em", display: "flex", alignItems: "flex-start" }}>
                     {p.stat}
                   </div>
@@ -137,14 +142,11 @@ export default function PowersSection() {
                   </div>
                 </div>
 
-                {/* Corner GitHub Button */}
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    window.open(p.repoLink, "_blank", "noopener,noreferrer");
-                  }}
+                {/* Corner GitHub Button (z-20 above link overlay) */}
+                <a
+                  href={p.repoLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="absolute bottom-0 right-0 bg-white flex items-end justify-end opacity-80 hover:opacity-100 transition-all duration-300 group/btn cursor-pointer z-20"
                   style={{
                     width: 44,
@@ -152,15 +154,15 @@ export default function PowersSection() {
                     borderTopLeftRadius: "100%",
                     paddingRight: 10,
                     paddingBottom: 8,
-                    border: "none",
+                    textDecoration: "none",
                   }}
                   aria-label={`View ${p.title} on GitHub`}
                 >
                   <span className="text-[var(--red)] text-lg font-bold transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-300">
                     &#8599;
                   </span>
-                </button>
-              </Link>
+                </a>
+              </div>
             </motion.div>
           ))}
         </div>
