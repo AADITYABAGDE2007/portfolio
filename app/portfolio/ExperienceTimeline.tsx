@@ -114,16 +114,10 @@ export default function ExperienceSection() {
                         <div className="mt-6 flex flex-wrap gap-3 md:justify-end">
                           <Link
                             href={`/experience/${exp.slug}`}
-                            className="group/btn relative overflow-hidden inline-flex items-center gap-2 text-[10px] sm:text-xs uppercase tracking-[0.2em] px-4 py-2 border border-white/20 bg-white/[0.02] text-white font-semibold transition-colors duration-500"
+                            className="inline-flex items-center gap-2 text-[10px] sm:text-xs uppercase tracking-[0.2em] px-4 py-2 border border-white/15 hover:border-[var(--red)] bg-white/[0.02] hover:bg-[var(--red)]/10 text-white font-semibold transition-all duration-300"
                             style={{ fontFamily: "sans-serif", textDecoration: "none" }}
                           >
-                            <span className="absolute inset-0 translate-y-full transition-transform duration-500 ease-in-out group-hover/btn:translate-y-0 bg-[var(--red)]" />
-                            <span className="relative z-10 transition-colors duration-500 group-hover/btn:text-black">
-                              Read Details
-                            </span>
-                            <span className="relative z-10 transition-colors duration-500 group-hover/btn:text-black">
-                              &rarr;
-                            </span>
+                            <span>Read Details</span> &rarr;
                           </Link>
                           <a
                             href={exp.certificateUrl}

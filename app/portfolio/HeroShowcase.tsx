@@ -227,25 +227,13 @@ export default function FrameHero() {
                 Building intelligent solutions and modern digital experiences with AI, Python, React, and machine learning, while turning ideas into practical applications through clean, scalable, and user-focused development.
               </p>
               <div className="mt-6 sm:mt-8 flex flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-                <button
-                  className="group/btn relative overflow-hidden text-[10px] tracking-[0.22em] uppercase px-5 sm:px-6 py-2.5 transition-colors duration-500 border border-[rgba(232,23,44,0.5)] bg-[rgba(232,23,44,0.05)]"
-                  style={{ color: "#fff", cursor: "pointer", fontFamily: "sans-serif" }}
-                  onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-                >
-                  <span className="absolute inset-0 translate-y-full transition-transform duration-500 ease-in-out group-hover/btn:translate-y-0 bg-[var(--red)]" />
-                  <span className="relative z-10 transition-colors duration-500 group-hover/btn:text-black font-semibold">
-                    View Projects
-                  </span>
+                <button className="text-[10px] tracking-[0.22em] uppercase px-5 sm:px-6 py-2.5 transition-all duration-300 border border-[rgba(232,23,44,0.5)] hover:bg-[rgba(232,23,44,0.1)]"
+                  style={{ color: "#fff", cursor: "pointer", fontFamily: "sans-serif" }} onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}>
+                  View Projects
                 </button>
-                <button
-                  className="group/btn relative overflow-hidden text-[10px] tracking-[0.22em] uppercase px-5 sm:px-6 py-2.5 transition-colors duration-500 border border-[var(--red)] bg-[var(--red)]"
-                  style={{ color: "#fff", cursor: "pointer", fontFamily: "sans-serif" }}
-                  onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-                >
-                  <span className="absolute inset-0 translate-y-full transition-transform duration-500 ease-in-out group-hover/btn:translate-y-0 bg-white" />
-                  <span className="relative z-10 transition-colors duration-500 text-white group-hover/btn:text-black font-semibold">
-                    Contact Me
-                  </span>
+                <button className="text-[10px] tracking-[0.22em] uppercase px-5 sm:px-6 py-2.5 transition-all duration-300"
+                  style={{ background: "var(--red)", color: "#fff", border: "none", cursor: "pointer", fontFamily: "sans-serif" }} onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
+                  Contact Me
                 </button>
               </div>
             </div>

@@ -128,37 +128,12 @@ export default function PowersSection() {
                 </h3>
 
                 {/* Description */}
-                <p className="pointer-events-none" style={{ fontSize: 12, color: "rgba(240,240,240,0.32)", fontFamily: "sans-serif", lineHeight: 1.85, marginBottom: 28, minHeight: 70 }}>
+                <p className="pointer-events-none" style={{ fontSize: 12, color: "rgba(240,240,240,0.32)", fontFamily: "sans-serif", lineHeight: 1.85, marginBottom: 40, minHeight: 80 }}>
                   {p.desc}
                 </p>
 
-                {/* View Details Button with Slide Effect */}
-                <div
-                  className="group/btn relative inline-flex w-full items-center justify-center gap-2 overflow-hidden transition-colors duration-500 text-white group-hover:text-black pointer-events-none"
-                  style={{
-                    border: "1px solid rgba(232,23,44,0.4)",
-                    background: "rgba(232,23,44,0.05)",
-                    fontFamily: "sans-serif",
-                    fontSize: 10,
-                    fontWeight: 700,
-                    letterSpacing: "0.18em",
-                    padding: "10px 14px",
-                    marginTop: "auto",
-                    marginBottom: 20,
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  <span
-                    className="absolute inset-0 translate-y-full transition-transform duration-500 ease-in-out group-hover:translate-y-0"
-                    style={{ background: "var(--red)" }}
-                  />
-                  <span className="relative z-10 transition-colors duration-500 group-hover:text-black flex items-center gap-1.5">
-                    VIEW PROJECT DETAILS <span aria-hidden>&rarr;</span>
-                  </span>
-                </div>
-
                 {/* Stat */}
-                <div className="pointer-events-none" style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 20, display: "flex", flexDirection: "column" }}>
+                <div className="pointer-events-none" style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 20, marginTop: "auto", display: "flex", flexDirection: "column" }}>
                   <div className="red-gradient" style={{ fontSize: "clamp(32px, 4vw, 48px)", fontWeight: 900, fontFamily: "sans-serif", letterSpacing: "-0.03em", lineHeight: 1, minHeight: "2em", display: "flex", alignItems: "flex-start" }}>
                     {p.stat}
                   </div>

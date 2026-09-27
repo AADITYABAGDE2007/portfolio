@@ -93,23 +93,17 @@ export default async function ExperienceDetailPage({ params }: PageProps) {
               href="/aaditya_resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="group/btn relative overflow-hidden inline-flex items-center justify-center text-[9px] sm:text-xs tracking-[0.18em] uppercase px-3 sm:px-4 py-2 border border-white/20 bg-white/[0.02] text-white/90 font-semibold transition-colors duration-500 hidden xs:inline-flex"
+              className="text-[9px] sm:text-xs tracking-[0.18em] uppercase px-3 sm:px-4 py-2 border border-white/15 hover:border-white/40 text-white/80 hover:text-white transition-all duration-300 font-semibold hidden xs:inline-flex"
               style={{ fontFamily: "sans-serif", textDecoration: "none" }}
             >
-              <span className="absolute inset-0 translate-y-full transition-transform duration-500 ease-in-out group-hover/btn:translate-y-0 bg-white" />
-              <span className="relative z-10 transition-colors duration-500 group-hover/btn:text-black">
-                Resume PDF
-              </span>
+              Resume PDF
             </a>
             <Link
               href="/#contact"
-              className="group/btn relative overflow-hidden inline-flex items-center justify-center text-[9px] sm:text-xs tracking-[0.18em] uppercase px-3.5 sm:px-4 py-2 border border-white bg-white text-black font-bold transition-colors duration-500 hidden sm:inline-flex"
+              className="text-[9px] sm:text-xs tracking-[0.18em] uppercase px-3.5 sm:px-4 py-2 bg-white text-black font-bold hover:bg-white/90 transition-all duration-300 hidden sm:inline-flex"
               style={{ fontFamily: "sans-serif", textDecoration: "none" }}
             >
-              <span className="absolute inset-0 translate-y-full transition-transform duration-500 ease-in-out group-hover/btn:translate-y-0 bg-[var(--red)]" />
-              <span className="relative z-10 transition-colors duration-500 text-black group-hover/btn:text-white">
-                Contact
-              </span>
+              Contact
             </Link>
           </div>
         </div>
@@ -364,13 +358,10 @@ export default async function ExperienceDetailPage({ params }: PageProps) {
 
           <Link
             href="/#experience"
-            className="group/btn relative overflow-hidden text-xs uppercase tracking-[0.3em] px-6 py-3 border border-white/20 bg-white/[0.02] text-white transition-colors duration-500"
-            style={{ fontFamily: "sans-serif", textDecoration: "none" }}
+            className="text-xs uppercase tracking-[0.3em] text-white/60 hover:text-white px-6 py-3 border border-white/15 hover:border-[var(--red)] transition-all duration-300"
+            style={{ fontFamily: "sans-serif" }}
           >
-            <span className="absolute inset-0 translate-y-full transition-transform duration-500 ease-in-out group-hover/btn:translate-y-0 bg-[var(--red)]" />
-            <span className="relative z-10 transition-colors duration-500 group-hover/btn:text-black font-semibold">
-              All Experiences
-            </span>
+            All Experiences
           </Link>
 
           {nextExp ? (
