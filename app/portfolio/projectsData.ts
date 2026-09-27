@@ -82,6 +82,56 @@ export const PROJECTS: ProjectData[] = [
   },
   {
     n: "02",
+    slug: "music-mood-recommendation-system",
+    title: "Music Mood Recommender",
+    tagline: "Intelligent playlist recommendation system mapping emotional states to curated music tracks.",
+    category: "Machine Learning & Recommendation Engine",
+    stat: "Machine Learning",
+    statLabel: "Recommendation System",
+    desc: "A mood-based song recommender combining React and Tailwind with a Scikit-learn recommendation model.",
+    overview:
+      "The Music Mood Recommendation System is an end-to-end machine learning and web application designed to recommend songs aligned with the listener's emotional mood. By leveraging feature vectors (danceability, energy, valence, tempo) and recommendation models built in Scikit-learn, the platform translates user mood selections into curated, personalized playlist recommendations in real time.",
+    problemSolved:
+      "Most mainstream music streaming platforms curate recommendations based on broad popularity metrics or static genres, often failing to mirror the user's immediate emotional state. This project solves that friction by providing direct mood-based song retrieval powered by acoustic feature modeling and machine learning algorithms.",
+    repoLink: "https://github.com/AADITYABAGDE2007/Music-Mood-Recommendation-System",
+    demoLink: "https://github.com/AADITYABAGDE2007/Music-Mood-Recommendation-System",
+    timeline: "Apr 2025",
+    role: "Machine Learning & Frontend Developer",
+    highlights: [
+      "Extracted and preprocessed multidimensional audio feature vectors (valence, energy, danceability, tempo) using Pandas and NumPy.",
+      "Trained and evaluated Scikit-learn recommendation models utilizing cosine distance and feature similarity metrics.",
+      "Engineered an interactive, mood-responsive React frontend with dynamic emotion selection and instant recommendation display.",
+      "Connected model predictions with responsive UI components for a low-latency user experience."
+    ],
+    features: [
+      {
+        title: "Mood & Emotion Mapping",
+        description: "Intelligent classification mapping diverse emotional states (Happy, Calm, Energetic, Sad) to audio feature profiles."
+      },
+      {
+        title: "Similarity Recommendation Engine",
+        description: "Vector similarity matching comparing track audio features against target mood vectors."
+      },
+      {
+        title: "Dynamic Playlist Generation",
+        description: "Instant generation of customized track playlists with album details, artist names, and mood tags."
+      },
+      {
+        title: "Responsive Dark UI",
+        description: "Clean, atmospheric user interface built with Tailwind CSS, designed for mobile and desktop screens."
+      }
+    ],
+    techStack: {
+      frontend: ["React.js", "Tailwind CSS", "JavaScript (ES6+)", "HTML5"],
+      backend: ["Python", "Scikit-learn", "Pandas", "NumPy"],
+      database: ["Audio Feature Datasets (CSV/JSON)"],
+      tools: ["Git", "GitHub", "Jupyter Notebook", "VS Code"]
+    },
+    architectureNotes:
+      "Integrates Scikit-learn cosine similarity modeling with structured feature engineering pipelines, communicating recommendation arrays directly to a reactive component-driven React interface."
+  },
+  {
+    n: "03",
     slug: "translator",
     title: "Translator",
     tagline: "Instant, low-latency multi-language translation powered by modern API integrations.",
@@ -130,7 +180,7 @@ export const PROJECTS: ProjectData[] = [
       "Utilizes asynchronous REST API communication with structured Axios instances, managing state efficiently via React Hooks with zero unnecessary re-renders."
   },
   {
-    n: "03",
+    n: "04",
     slug: "expense-tracker",
     title: "Expense Tracker",
     tagline: "Personal finance and expenditure intelligence with instant visual breakdowns.",
@@ -180,7 +230,7 @@ export const PROJECTS: ProjectData[] = [
       "Engineered with clean React state management, unidirectional data flow, and synchronous LocalStorage sync hooks for zero-latency persistence."
   },
   {
-    n: "04",
+    n: "05",
     slug: "lost-and-found",
     title: "Lost & Found",
     tagline: "Digital campus recovery portal connecting lost personal items with rightful owners.",
