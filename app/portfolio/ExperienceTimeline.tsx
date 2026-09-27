@@ -236,10 +236,16 @@ export default function ExperienceSection() {
                             href={exp.certificateUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs uppercase tracking-[0.2em] px-4 py-2 border border-[rgba(232,23,44,0.4)] hover:border-[var(--red)] bg-[rgba(232,23,44,0.08)] hover:bg-[var(--red)] text-white font-semibold transition-all duration-300"
+                            className="group/btn relative overflow-hidden inline-flex items-center gap-1.5 text-[10px] sm:text-xs uppercase tracking-[0.2em] px-4 py-2 border border-[rgba(232,23,44,0.4)] bg-[rgba(232,23,44,0.06)] text-white font-semibold transition-colors duration-500"
                             style={{ fontFamily: "sans-serif", textDecoration: "none" }}
                           >
-                            <span>Certificate</span> &#8599;
+                            <span className="absolute inset-0 translate-y-full transition-transform duration-500 ease-in-out group-hover/btn:translate-y-0 bg-[var(--red)]" />
+                            <span className="relative z-10 transition-colors duration-500 group-hover/btn:text-black">
+                              Certificate
+                            </span>
+                            <span className="relative z-10 transition-colors duration-500 text-[var(--red)] group-hover/btn:text-black">
+                              &#8599;
+                            </span>
                           </a>
                         </div>
                       </motion.div>
